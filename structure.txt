@@ -1,0 +1,240 @@
+qasecclaw
+├── agents
+│   ├── README.md
+│   ├── schemas
+│   ├── skills
+│   │   ├── api_testing
+│   │   │   └── SKILL.md
+│   │   ├── evidence_correlation
+│   │   │   └── SKILL.md
+│   │   ├── log_intelligence
+│   │   │   └── SKILL.md
+│   │   ├── report
+│   │   │   └── SKILL.md
+│   │   ├── security_validation
+│   │   │   └── SKILL.md
+│   │   ├── test_planning
+│   │   │   └── SKILL.md
+│   │   └── ui_testing
+│   │       └── SKILL.md
+│   └── workspaces
+│       ├── api_testing
+│       │   └── api_testing
+│       │       ├── SOUL.md
+│       │       └── workspace.json
+│       ├── evidence_correlation
+│       │   └── evidence_correlation
+│       │       ├── SOUL.md
+│       │       └── workspace.json
+│       ├── log_intelligence
+│       │   └── log_intelligence
+│       │       ├── SOUL.md
+│       │       └── workspace.json
+│       ├── mission_orchestrator
+│       │   └── mission_orchestrator
+│       │       ├── SOUL.md
+│       │       └── workspace.json
+│       ├── report
+│       │   └── report
+│       │       ├── SOUL.md
+│       │       └── workspace.json
+│       ├── security_validation
+│       │   └── security_validation
+│       │       ├── SOUL.md
+│       │       └── workspace.json
+│       ├── test_planning
+│       │   └── test_planning
+│       │       ├── SOUL.md
+│       │       └── workspace.json
+│       └── ui_automation
+│           └── ui_automation
+│               ├── SOUL.md
+│               └── workspace.json
+├── artifacts
+│   ├── plots
+│   ├── reports
+│   └── runs
+├── datasets
+│   ├── configs
+│   │   └── example.local.yaml
+│   ├── README.md
+│   └── sampling
+│       └── stratified_sampler.py
+├── docs
+│   └── architecture.md
+├── experiments
+│   ├── baselines
+│   ├── metrics
+│   ├── pipelines
+│   ├── python
+│   │   ├── pyproject.toml
+│   │   └── README.md
+│   └── README.md
+├── framework
+│   ├── node_modules
+│   │   ├── @types
+│   │   │   └── node -> ../../../node_modules/.pnpm/@types+node@22.19.15/node_modules/@types/node
+│   │   ├── typescript -> ../../node_modules/.pnpm/typescript@5.9.3/node_modules/typescript
+│   │   └── vitest -> ../../node_modules/.pnpm/vitest@2.1.9_@types+node@22.19.15/node_modules/vitest
+│   ├── package.json
+│   ├── src
+│   │   ├── index.test.ts
+│   │   └── index.ts
+│   ├── tsconfig.json
+│   └── vitest.config.ts
+├── LICENSE
+├── node_modules
+├── package.json
+├── pnpm-lock.yaml
+├── pnpm-workspace.yaml
+├── README.md
+├── research
+│   ├── bibliography
+│   ├── figures
+│   ├── notes
+│   │   └── idea
+│   │       └── qa_sec_claw_idea0.pdf
+│   ├── paper
+│   │   └── OUTLINE.md
+│   └── README.md
+├── skills
+│   ├── 1password
+│   │   ├── references
+│   │   │   ├── cli-examples.md
+│   │   │   └── get-started.md
+│   │   └── SKILL.md
+│   ├── apple-notes
+│   │   └── SKILL.md
+│   ├── apple-reminders
+│   │   └── SKILL.md
+│   ├── bear-notes
+│   │   └── SKILL.md
+│   ├── blogwatcher
+│   │   └── SKILL.md
+│   ├── blucli
+│   │   └── SKILL.md
+│   ├── bluebubbles
+│   │   └── SKILL.md
+│   ├── camsnap
+│   │   └── SKILL.md
+│   ├── canvas
+│   │   └── SKILL.md
+│   ├── clawhub
+│   │   └── SKILL.md
+│   ├── coding-agent
+│   │   └── SKILL.md
+│   ├── discord
+│   │   └── SKILL.md
+│   ├── eightctl
+│   │   └── SKILL.md
+│   ├── gemini
+│   │   └── SKILL.md
+│   ├── gh-issues
+│   │   └── SKILL.md
+│   ├── gifgrep
+│   │   └── SKILL.md
+│   ├── github
+│   │   └── SKILL.md
+│   ├── gog
+│   │   └── SKILL.md
+│   ├── goplaces
+│   │   └── SKILL.md
+│   ├── healthcheck
+│   │   └── SKILL.md
+│   ├── himalaya
+│   │   ├── references
+│   │   │   ├── configuration.md
+│   │   │   └── message-composition.md
+│   │   └── SKILL.md
+│   ├── imsg
+│   │   └── SKILL.md
+│   ├── mcporter
+│   │   └── SKILL.md
+│   ├── model-usage
+│   │   ├── references
+│   │   │   └── codexbar-cli.md
+│   │   ├── scripts
+│   │   │   ├── model_usage.py
+│   │   │   └── test_model_usage.py
+│   │   └── SKILL.md
+│   ├── nano-banana-pro
+│   │   ├── scripts
+│   │   │   ├── generate_image.py
+│   │   │   └── test_generate_image.py
+│   │   └── SKILL.md
+│   ├── nano-pdf
+│   │   └── SKILL.md
+│   ├── notion
+│   │   └── SKILL.md
+│   ├── obsidian
+│   │   └── SKILL.md
+│   ├── openai-image-gen
+│   │   ├── scripts
+│   │   │   ├── gen.py
+│   │   │   └── test_gen.py
+│   │   └── SKILL.md
+│   ├── openai-whisper
+│   │   └── SKILL.md
+│   ├── openai-whisper-api
+│   │   ├── scripts
+│   │   │   └── transcribe.sh
+│   │   └── SKILL.md
+│   ├── openhue
+│   │   └── SKILL.md
+│   ├── oracle
+│   │   └── SKILL.md
+│   ├── ordercli
+│   │   └── SKILL.md
+│   ├── peekaboo
+│   │   └── SKILL.md
+│   ├── sag
+│   │   └── SKILL.md
+│   ├── session-logs
+│   │   └── SKILL.md
+│   ├── sherpa-onnx-tts
+│   │   ├── bin
+│   │   │   └── sherpa-onnx-tts
+│   │   └── SKILL.md
+│   ├── skill-creator
+│   │   ├── license.txt
+│   │   ├── scripts
+│   │   │   ├── init_skill.py
+│   │   │   ├── package_skill.py
+│   │   │   ├── quick_validate.py
+│   │   │   ├── test_package_skill.py
+│   │   │   └── test_quick_validate.py
+│   │   └── SKILL.md
+│   ├── slack
+│   │   └── SKILL.md
+│   ├── songsee
+│   │   └── SKILL.md
+│   ├── sonoscli
+│   │   └── SKILL.md
+│   ├── spotify-player
+│   │   └── SKILL.md
+│   ├── summarize
+│   │   └── SKILL.md
+│   ├── things-mac
+│   │   └── SKILL.md
+│   ├── tmux
+│   │   ├── scripts
+│   │   │   ├── find-sessions.sh
+│   │   │   └── wait-for-text.sh
+│   │   └── SKILL.md
+│   ├── trello
+│   │   └── SKILL.md
+│   ├── video-frames
+│   │   ├── scripts
+│   │   │   └── frame.sh
+│   │   └── SKILL.md
+│   ├── voice-call
+│   │   └── SKILL.md
+│   ├── wacli
+│   │   └── SKILL.md
+│   ├── weather
+│   │   └── SKILL.md
+│   └── xurl
+│       └── SKILL.md
+└── structure.txt
+
+119 directories, 119 files

@@ -1,0 +1,6 @@
+{
+  "name": "Mission Orchestrator",
+  "description": "Roots the execution, manages sub-agents, controls overall flow, delegates QA/Sec steps but makes no remediation logic.",
+  "roles": ["orchestrator"],
+  "instructions": "./SOUL.md"
+}

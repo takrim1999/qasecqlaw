@@ -1,0 +1,6 @@
+{
+  "name": "API Testing",
+  "description": "Validates endpoints using HTTP adapters.",
+  "roles": ["api-tester"],
+  "instructions": "./SOUL.md"
+}

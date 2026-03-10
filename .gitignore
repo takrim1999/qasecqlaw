@@ -1,0 +1,32 @@
+**/node_modules/
+.env
+.DS_Store
+
+# JS build artifacts
+dist/
+coverage/
+*.tsbuildinfo
+.pnpm-store/
+
+# Python artifacts
+**/__pycache__/
+**/*.pyc
+.pytest_cache/
+.ruff_cache/
+.venv/
+
+# Dataset checkouts (do not commit dataset blobs)
+datasets/raw/
+datasets/cache/
+
+# Experiment outputs (do not commit)
+artifacts/
+experiments/**/outputs/
+
+# OpenClaw local state (never commit)
+memory/
+local/
+
+# Cursor/editor
+.cursor/
+.idea/

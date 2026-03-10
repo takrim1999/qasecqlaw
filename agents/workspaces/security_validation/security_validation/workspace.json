@@ -1,0 +1,6 @@
+{
+  "name": "Security Validation",
+  "description": "Runs Semgrep and ZAP wrapper skills to identify vulnerabilities.",
+  "roles": ["security"],
+  "instructions": "./SOUL.md"
+}

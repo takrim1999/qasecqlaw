@@ -1,0 +1,6 @@
+{
+  "name": "Evidence Correlation",
+  "description": "Correlates failures across UI, API, Security, and Logs. Identifies root causes.",
+  "roles": ["correlator"],
+  "instructions": "./SOUL.md"
+}

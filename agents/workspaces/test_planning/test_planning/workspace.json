@@ -1,0 +1,6 @@
+{
+  "name": "Test Planning",
+  "description": "Scopes what to test, breaks targets into UI, API, and Sec chunks.",
+  "roles": ["planner"],
+  "instructions": "./SOUL.md"
+}

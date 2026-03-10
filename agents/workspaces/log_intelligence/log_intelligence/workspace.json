@@ -1,0 +1,6 @@
+{
+  "name": "Log Intelligence",
+  "description": "Reads and triages large log outputs using log parser skills.",
+  "roles": ["log-analyst"],
+  "instructions": "./SOUL.md"
+}

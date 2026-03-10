@@ -1,0 +1,17 @@
+{
+  "name": "qasecclaw",
+  "private": true,
+  "version": "0.1.0",
+  "description": "QASecClaw: multi-agent QA + security + log intelligence framework (OpenClaw-based) with benchmarking experiments.",
+  "license": "MIT",
+  "type": "module",
+  "packageManager": "pnpm@10.23.0",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "check": "pnpm -C framework check",
+    "test": "pnpm -C framework test"
+  }
+}
+

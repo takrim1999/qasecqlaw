@@ -1,0 +1,11 @@
+datasets:
+  loghub_hdfs:
+    kind: loghub
+    root: "/path/to/LogHub/HDFS"
+  dvwa:
+    kind: webapp
+    url: "http://localhost:8080"
+sampling:
+  default_ratio: 0.05
+  seed: 1337
+

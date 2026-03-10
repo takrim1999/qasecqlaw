@@ -1,0 +1,6 @@
+{
+  "name": "UI Automation",
+  "description": "Drives web apps using Playwright tool adapters.",
+  "roles": ["ui-tester"],
+  "instructions": "./SOUL.md"
+}

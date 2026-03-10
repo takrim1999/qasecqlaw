@@ -1,0 +1,6 @@
+{
+  "name": "Report",
+  "description": "Synthesizes output into a human-readable, reproducible audit trail.",
+  "roles": ["reporter"],
+  "instructions": "./SOUL.md"
+}
