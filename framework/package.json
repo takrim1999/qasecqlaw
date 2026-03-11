@@ -6,13 +6,17 @@
   "description": "QASecClaw framework glue code built on OpenClaw.",
   "scripts": {
     "check": "tsc -p tsconfig.json --noEmit",
-    "test": "vitest run"
+    "test": "vitest run",
+    "start": "tsx src/index.ts"
   },
   "dependencies": {
-    "chalk": "^5.3.0"
+    "chalk": "^5.3.0",
+    "dotenv": "^16.4.5",
+    "openai": "^4.73.0"
   },
   "devDependencies": {
     "@types/node": "^22.13.0",
+    "tsx": "^4.19.2",
     "typescript": "^5.6.3",
     "vitest": "^2.1.8"
   }

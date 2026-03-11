@@ -1,3 +1,7 @@
+import { fileURLToPath } from "url"
+import { dirname, resolve } from "path"
+import { writeFile } from "node:fs/promises"
+
 export type QASecClawRunRequest = {
   target: {
     name: string
@@ -140,6 +144,19 @@ export interface LogCluster {
   readonly anomalyScore: number
 }
 
+export interface SystemAnomaly {
+  readonly id: string
+  readonly timestamp: string
+  readonly service: string
+  readonly severity: string
+  readonly message: string
+  readonly stackTrace?: string
+}
+
+export interface LogAnalysisOutput {
+  readonly systemAnomalies: readonly SystemAnomaly[]
+}
+
 export interface RootCauseEstimation {
   readonly id: string
   readonly clusterId: string
@@ -150,6 +167,7 @@ export interface RootCauseEstimation {
 export interface LogIntelligenceOutput {
   readonly clusters: LogCluster[]
   readonly rootCauses: RootCauseEstimation[]
+  readonly systemAnomalies: readonly SystemAnomaly[]
 }
 
 /**
@@ -167,6 +185,9 @@ export interface CausalChainStep {
 export interface CausalChain {
   readonly id: string
   readonly summary: string
+  readonly primaryFailureId?: string
+  readonly linkedEvidenceIds?: readonly string[]
+  readonly correlationExplanation?: string
   readonly steps: CausalChainStep[]
 }
 
@@ -380,9 +401,27 @@ export class MissionOrchestrator {
 
   private async runLogAnalysis(prev: MissionState): Promise<MissionState> {
     this.logPhaseDetail("Log Analysis", "Parsing logs and clustering anomalies...")
+    const mockRawLogs = `2024-03-10T14:32:01.123Z [postgresql] ERROR: connection timeout after 30000ms
+  at ConnectionPool.acquire (node_modules/pg/lib/connection-pool.js:45:12)
+  at Client.query (node_modules/pg/lib/client.js:89:7)
+  at Database.getUser (/app/services/db.js:112:5)
+  at async UserService.findById (/app/services/user.js:23:11)
+Caused by: ECONNREFUSED 127.0.0.1:5432
+
+2024-03-10T14:32:02.456Z [nginx] 500 Internal Server Error - upstream timed out
+  client: 192.168.1.100
+  request: "GET /api/users/123 HTTP/1.1"
+  upstream: "http://127.0.0.1:8080/api/users/123"
+  host: "api.example.com"`
+
+    const agent = new (await import("./agents/log-intelligence-agent.js")).LogIntelligenceAgent({
+      rawLogs: mockRawLogs,
+    })
+    const analysis = await agent.execute()
     const logs: LogIntelligenceOutput = {
       clusters: [],
       rootCauses: [],
+      systemAnomalies: analysis.systemAnomalies,
     }
     return {
       ...prev,
@@ -393,9 +432,17 @@ export class MissionOrchestrator {
 
   private async runEvidenceCorrelation(prev: MissionState): Promise<MissionState> {
     this.logPhaseDetail("Evidence Correlation", "Linking UI, API, Security, and Logs...")
-    const evidence: EvidenceCorrelationOutput = {
-      chains: [],
+    const artifacts = {
+      uiTraces: prev.uiTesting?.traces ?? [],
+      apiLogs: prev.apiTesting?.results ?? [],
+      vulnerabilities: prev.securityValidation?.findings ?? [],
+      systemAnomalies: prev.logIntelligence?.systemAnomalies ?? [],
+      rootCauseEstimations: prev.logIntelligence?.rootCauses,
     }
+    const agent = new (await import("./agents/evidence-correlation-agent.js")).EvidenceCorrelationAgent({
+      artifacts,
+    })
+    const evidence = await agent.execute()
     return {
       ...prev,
       evidenceCorrelation: evidence,
@@ -405,9 +452,22 @@ export class MissionOrchestrator {
 
   private async runReportGeneration(prev: MissionState): Promise<MissionState> {
     this.logPhaseDetail("Report Generation", "Assembling benchmark report artifacts...")
+    const agent = new (await import("./agents/report-agent.js")).ReportAgent({
+      testPlan: prev.testPlanning,
+      uiTesting: prev.uiTesting,
+      apiTesting: prev.apiTesting,
+      securityValidation: prev.securityValidation,
+      logIntelligence: prev.logIntelligence,
+      causalChains: prev.evidenceCorrelation?.chains,
+    })
+    const markdown = await agent.execute()
+    const __dirname = dirname(fileURLToPath(import.meta.url))
+    const reportPath = resolve(__dirname, "..", "qasecclaw-report.md")
+    await writeFile(reportPath, markdown, "utf-8")
+    console.log(chalk.green(`Report written to ${reportPath}`))
     const report: ReportOutput = {
-      reportPath: "artifacts/reports/qasecclaw-report.json",
-      summary: "Report generation placeholder – to be implemented.",
+      reportPath,
+      summary: markdown.slice(0, 200) + (markdown.length > 200 ? "..." : ""),
     }
     return {
       ...prev,
@@ -507,5 +567,30 @@ export class MissionOrchestrator {
     if (ms <= 0) return
     await new Promise<void>((resolve) => setTimeout(resolve, ms))
   }
+}
+
+/**
+ * Execution block: run orchestrator when this file is executed directly.
+ */
+const __filename = fileURLToPath(import.meta.url)
+const isMain = process.argv[1] === __filename
+
+if (isMain) {
+  ;(async () => {
+    const request: QASecClawRunRequest = {
+      target: {
+        name: "OWASP Benchmark",
+        kind: "repo_path",
+        value: "/tmp/owasp-benchmark",
+      },
+    }
+    const orchestrator = new MissionOrchestrator(request)
+    try {
+      await orchestrator.run()
+    } catch (err) {
+      console.error("Fatal error:", err instanceof Error ? err.message : String(err))
+      process.exit(1)
+    }
+  })()
 }
 
