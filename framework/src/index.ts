@@ -326,19 +326,16 @@ export class MissionOrchestrator {
 
   private async runTestPlanning(prev: MissionState): Promise<MissionState> {
     this.logPhaseDetail("Test Planning", "Synthesizing coverage and vulnerability plans...")
-    const output: TestPlanningOutput = {
-      coveragePlan: {
-        uiAreas: [],
-        apiEndpoints: [],
-        securitySurfaces: [],
-      },
-      testCases: [],
-      vulnerabilityTestingPlan: {
-        highRiskEndpoints: [],
-        authFlows: [],
-        dataFlows: [],
-      },
-    }
+    const sourcePath = prev.request.target.value || "/tmp/owasp-benchmark"
+    const apiSpecPath = prev.request.target.kind === "repo_path"
+      ? `${prev.request.target.value}/openapi.json`
+      : undefined
+    const agent = new (await import("./agents/test-planning-agent.js")).TestPlanningAgent({
+      sourceCodePath: sourcePath,
+      apiSpecPath,
+      datasetDescription: prev.request.target.name || "OWASP Benchmark",
+    })
+    const output = await agent.execute()
     return {
       ...prev,
       testPlanning: output,
@@ -352,19 +349,25 @@ export class MissionOrchestrator {
       "Simulating parallel UI, API, and Security test execution...",
     )
 
-    const ui: UITestingOutput = {
-      traces: [],
-      failureLogs: [],
-      screenshots: [],
-    }
+    const sourcePath = prev.request.target.value || "/tmp/owasp-benchmark"
+    const baseUrl = prev.request.target.kind === "url"
+      ? prev.request.target.value
+      : `http://localhost:8080`
 
-    const api: APITestingOutput = {
-      results: [],
-    }
-
-    const sec: SecurityValidationOutput = {
-      findings: [],
-    }
+    const [ui, api, sec] = await Promise.all([
+      new (await import("./agents/ui-testing-agent.js")).UITestingAgent({
+        baseUrl,
+        uiAreas: prev.testPlanning?.coveragePlan.uiAreas,
+      }).execute(),
+      new (await import("./agents/api-testing-agent.js")).APITestingAgent({
+        baseUrl,
+        endpoints: prev.testPlanning?.coveragePlan.apiEndpoints,
+      }).execute(),
+      new (await import("./agents/security-validation-agent.js")).SecurityValidationAgent({
+        sourcePath,
+        highRiskSurfaces: prev.testPlanning?.vulnerabilityTestingPlan.highRiskEndpoints ?? [],
+      }).execute(),
+    ])
 
     return {
       ...prev,
