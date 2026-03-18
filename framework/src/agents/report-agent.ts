@@ -35,6 +35,26 @@ You MUST output ONLY valid Markdown text. Include the following sections:
 3. **Root Cause Analysis** - Synthesize causal chains to explain failure propagation
 4. **Actionable Recommendations** - Prioritized next steps for engineering and security teams
 
+You MUST structure the '2. Key Vulnerabilities' section EXACTLY using the following markdown headers. You must create a separate markdown table under each header. Do not combine them into a single table.
+
+### Critical Severity
+| ID | Vulnerability Type | Location | Description |
+|---|---|---|---|
+
+### High Severity
+| ID | Vulnerability Type | Location | Description |
+|---|---|---|---|
+
+### Medium Severity
+| ID | Vulnerability Type | Location | Description |
+|---|---|---|---|
+
+### Low Severity
+| ID | Vulnerability Type | Location | Description |
+|---|---|---|---|
+
+If there are no vulnerabilities for a specific severity, output the header and write 'No vulnerabilities found in this category.' instead of a table.
+
 Do not include JSON, code blocks around the report, or conversational preamble. Output raw Markdown only.`
 
     const userPrompt = `Synthesize the following accumulated mission state into an executive report:

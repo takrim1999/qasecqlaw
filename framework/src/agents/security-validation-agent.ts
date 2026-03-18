@@ -69,12 +69,22 @@ export class SecurityValidationAgent {
             .filter((x): x is SecurityFinding => x !== null)
         : []
     } catch (err) {
+      const codePath = this.inputs.sourceCodePath ?? this.inputs.sourcePath
+      const errMsg = err instanceof Error ? err.message : String(err)
       console.error(
         chalk.yellow(
-          "Live Semgrep execution failed (ensure semgrep is installed). Falling back to mock SAST data.",
+          "Live Semgrep execution failed. Returning 0 SAST findings to preserve data integrity.",
         ),
       )
-      semgrepFindings = this.mockSemgrepRun()
+      semgrepFindings = []
+      findings.push({
+        id: "semgrep-exec-failed",
+        tool: "semgrep" as SecurityTool,
+        vulnerabilityType: "Semgrep Execution Failure",
+        severity: "LOW" as VulnerabilitySeverity,
+        location: codePath,
+        description: `Semgrep did not run successfully: ${errMsg}`,
+      })
     }
 
     findings.push(...semgrepFindings)
