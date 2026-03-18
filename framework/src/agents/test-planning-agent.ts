@@ -1,7 +1,8 @@
 import type { TestPlanningOutput } from "../index.js"
 import { generateQwenResponse } from "../llm/qwen-client.js"
 import chalk from "chalk"
-import * as fs from "node:fs"
+import * as fsSync from "node:fs"
+import fs from "node:fs/promises"
 import * as path from "node:path"
 
 /**
@@ -46,11 +47,35 @@ export class TestPlanningAgent {
     console.log(chalk.cyan.bold("[Test Planning Agent]"))
     console.log(chalk.gray("  Gathering context (file tree, API spec)..."))
 
-    const apiSpecContent = this.readApiSpec()
-    const fileTree = this.buildFileTree(this.inputs.sourceCodePath)
     const datasetDesc = this.inputs.datasetDescription ?? "web application"
 
-    const userMessage = this.buildUserMessage(apiSpecContent, fileTree, datasetDesc)
+    let apiSpecContent = ""
+    let topLevelListing: string[] = []
+    let fileTree = ""
+
+    try {
+      if (this.inputs.apiSpecPath) {
+        apiSpecContent = await fs.readFile(this.inputs.apiSpecPath, "utf-8")
+      }
+
+      if (this.inputs.sourceCodePath) {
+        const dirEntries = await fs.readdir(this.inputs.sourceCodePath, { withFileTypes: true })
+        topLevelListing = dirEntries.slice(0, 50).map((e) => `${e.name}${e.isDirectory() ? "/" : ""}`)
+        fileTree = this.buildFileTree(this.inputs.sourceCodePath)
+      }
+    } catch {
+      console.log(chalk.yellow("  Real file paths not found, generating generic plan"))
+      apiSpecContent = this.readApiSpec()
+      fileTree = this.buildFileTree(this.inputs.sourceCodePath)
+      topLevelListing = []
+    }
+
+    const userMessage = this.buildUserMessage(
+      apiSpecContent,
+      fileTree,
+      datasetDesc,
+      topLevelListing,
+    )
     const systemPrompt = this.buildSystemPrompt()
 
     console.log(chalk.gray("  Querying Qwen LLM for Test Plan..."))
@@ -81,11 +106,11 @@ export class TestPlanningAgent {
   }
 
   private readApiSpec(): string {
-    if (!this.inputs.apiSpecPath || !fs.existsSync(this.inputs.apiSpecPath)) {
+    if (!this.inputs.apiSpecPath || !fsSync.existsSync(this.inputs.apiSpecPath)) {
       return ""
     }
     try {
-      return fs.readFileSync(this.inputs.apiSpecPath, "utf-8")
+      return fsSync.readFileSync(this.inputs.apiSpecPath, "utf-8")
     } catch {
       return ""
     }
@@ -93,12 +118,12 @@ export class TestPlanningAgent {
 
   private buildFileTree(dirPath: string, prefix = "", maxDepth = 4, depth = 0): string {
     if (depth >= maxDepth) return ""
-    if (!fs.existsSync(dirPath) || !fs.statSync(dirPath).isDirectory()) {
+    if (!fsSync.existsSync(dirPath) || !fsSync.statSync(dirPath).isDirectory()) {
       return ""
     }
 
     const lines: string[] = []
-    const entries = fs.readdirSync(dirPath, { withFileTypes: true }).slice(0, 50)
+    const entries = fsSync.readdirSync(dirPath, { withFileTypes: true }).slice(0, 50)
 
     for (const e of entries) {
       const name = e.name
@@ -131,9 +156,13 @@ Rules:
     apiSpecContent: string,
     fileTree: string,
     datasetDesc: string,
+    topLevelListing: string[],
   ): string {
     const parts: string[] = [
       `Dataset: ${datasetDesc}`,
+      "",
+      "Top-level directory entries (JSON array):",
+      JSON.stringify(topLevelListing, null, 2) || "[]",
       "",
       "File tree (source code structure):",
       fileTree || "(no directory or empty)",
@@ -223,15 +252,15 @@ Rules:
   }> {
     const uiAreas: string[] = []
     const securitySurfaces: string[] = []
-    const owaspBenchmarkPaths = [
+      const owaspBenchmarkPaths = [
       "src/main/java/org/owasp/benchmark/testcode",
       "src/main/webapp",
       "testcases",
     ]
     for (const p of owaspBenchmarkPaths) {
       const fullPath = path.join(sourcePath, p)
-      if (fs.existsSync(fullPath)) {
-        const entries = fs.readdirSync(fullPath, { withFileTypes: true })
+      if (fsSync.existsSync(fullPath)) {
+        const entries = fsSync.readdirSync(fullPath, { withFileTypes: true })
         for (const e of entries) {
           if (e.isDirectory()) {
             uiAreas.push(path.join(p, e.name))
@@ -259,8 +288,8 @@ Rules:
       "/api/user/profile",
       "/api/admin/users",
     ]
-    if (apiSpecPath && fs.existsSync(apiSpecPath)) {
-      const content = fs.readFileSync(apiSpecPath, "utf-8")
+    if (apiSpecPath && fsSync.existsSync(apiSpecPath)) {
+      const content = fsSync.readFileSync(apiSpecPath, "utf-8")
       const paths = content.match(/["']\/[^"']+["']/g) ?? []
       if (paths.length > 0) {
         return paths.map((p) => p.replace(/["']/g, ""))

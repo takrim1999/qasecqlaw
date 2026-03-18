@@ -1,6 +1,7 @@
 import { fileURLToPath } from "url"
 import { dirname, resolve } from "path"
 import { writeFile } from "node:fs/promises"
+import { parseArgs } from "node:util"
 
 export type QASecClawRunRequest = {
   target: {
@@ -8,6 +9,7 @@ export type QASecClawRunRequest = {
     kind: "source_zip" | "repo_path" | "url"
     value: string
   }
+  apiSpecPath?: string
 }
 
 export type QASecClawRunResult = {
@@ -348,9 +350,11 @@ export class MissionOrchestrator {
   private async runTestPlanning(prev: MissionState): Promise<MissionState> {
     this.logPhaseDetail("Test Planning", "Synthesizing coverage and vulnerability plans...")
     const sourcePath = prev.request.target.value || "/tmp/owasp-benchmark"
-    const apiSpecPath = prev.request.target.kind === "repo_path"
-      ? `${prev.request.target.value}/openapi.json`
-      : undefined
+    const apiSpecPath =
+      prev.request.apiSpecPath ??
+      (prev.request.target.kind === "repo_path"
+        ? `${prev.request.target.value}/openapi.json`
+        : undefined)
     const agent = new (await import("./agents/test-planning-agent.js")).TestPlanningAgent({
       sourceCodePath: sourcePath,
       apiSpecPath,
@@ -577,12 +581,32 @@ const isMain = process.argv[1] === __filename
 
 if (isMain) {
   ;(async () => {
+    // `tsx` and package managers sometimes inject a literal `--` to
+    // separate their own flags from script flags. `parseArgs` will treat
+    // anything after that as positionals, so we strip it for robustness.
+    const args = process.argv.slice(2).filter((a) => a !== "--")
+    const { values } = parseArgs({
+      args,
+      options: {
+        name: { type: "string" },
+        source: { type: "string" },
+        api: { type: "string" },
+      },
+    })
+
+    const name = values.name ?? "OWASP Benchmark"
+    const source = values.source ?? "/tmp/owasp-benchmark"
+    const apiSpecPath = values.api ?? (values.source ? `${source}/openapi.json` : undefined)
+    const kind: QASecClawRunRequest["target"]["kind"] =
+      source.startsWith("http://") || source.startsWith("https://") ? "url" : "repo_path"
+
     const request: QASecClawRunRequest = {
       target: {
-        name: "OWASP Benchmark",
-        kind: "repo_path",
-        value: "/tmp/owasp-benchmark",
+        name,
+        kind,
+        value: source,
       },
+      apiSpecPath,
     }
     const orchestrator = new MissionOrchestrator(request)
     try {
@@ -593,4 +617,3 @@ if (isMain) {
     }
   })()
 }
-

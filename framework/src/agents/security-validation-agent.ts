@@ -5,12 +5,21 @@ import type {
   VulnerabilitySeverity,
 } from "../index.js"
 import chalk from "chalk"
+import { exec } from "node:child_process"
+import { promisify } from "node:util"
+
+const execAsync = promisify(exec)
 
 /**
  * Inputs for the Security Validation Agent (per PDF Section 3.4).
  */
 export interface SecurityValidationInputs {
   readonly sourcePath: string
+  /**
+   * Alias for `sourcePath`. Some callers may provide this name; we keep both
+   * to avoid breaking existing orchestrator wiring.
+   */
+  readonly sourceCodePath?: string
   readonly highRiskSurfaces?: readonly string[]
 }
 
@@ -31,8 +40,44 @@ export class SecurityValidationAgent {
 
     const findings: SecurityFinding[] = []
 
-    console.log(chalk.gray("  Running Semgrep static analysis..."))
-    findings.push(...this.mockSemgrepRun())
+    let semgrepFindings: SecurityFinding[] = []
+
+    try {
+      const codePath = this.inputs.sourceCodePath ?? this.inputs.sourcePath
+      console.log(chalk.blue("Initiating live Semgrep SAST scan..."))
+
+      const start = Date.now()
+      const { stdout } = await execAsync(
+        `semgrep scan --json ${codePath}`,
+        { maxBuffer: 1024 * 1024 * 10 },
+      )
+
+      console.log(
+        chalk.blue(`Semgrep scan finished in ${Date.now() - start}ms`),
+      )
+
+      const parsed: unknown = JSON.parse(stdout)
+      const results: unknown[] =
+        typeof parsed === "object" && parsed !== null && "results" in parsed
+          ? // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            ((parsed as any).results as unknown[])
+          : (parsed as unknown[])
+
+      semgrepFindings = Array.isArray(results)
+        ? results
+            .map((r, i) => mapSemgrepResultToFinding(r, i))
+            .filter((x): x is SecurityFinding => x !== null)
+        : []
+    } catch (err) {
+      console.error(
+        chalk.yellow(
+          "Live Semgrep execution failed (ensure semgrep is installed). Falling back to mock SAST data.",
+        ),
+      )
+      semgrepFindings = this.mockSemgrepRun()
+    }
+
+    findings.push(...semgrepFindings)
 
     console.log(chalk.gray("  Running OWASP ZAP dynamic scan..."))
     findings.push(...this.mockZapRun())
@@ -145,4 +190,39 @@ export class SecurityValidationAgent {
     console.log(chalk.dim(`    Snyk: ${findings.length} dependency findings`))
     return findings
   }
+}
+
+function mapSemgrepResultToFinding(r: unknown, index: number): SecurityFinding | null {
+  if (typeof r !== "object" || r === null) return null
+
+  // semgrep JSON shape (best-effort, varies by semgrep version)
+  // result.path, result.start.line, result.extra.severity/message, result.check_id
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const o = r as any
+
+  const path = typeof o.path === "string" ? o.path : undefined
+  const line = typeof o?.start?.line === "number" ? o.start.line : undefined
+  const severityRaw = o?.extra?.severity
+  const descriptionRaw = o?.extra?.message
+  const checkIdRaw = o?.check_id
+
+  if (!path || line === undefined || typeof severityRaw !== "string") return null
+
+  const severity = normalizeSemgrepSeverity(severityRaw)
+  return {
+    id: `semgrep-${String(index + 1).padStart(4, "0")}`,
+    tool: "semgrep" as SecurityTool,
+    vulnerabilityType: typeof checkIdRaw === "string" ? checkIdRaw : "Semgrep Finding",
+    severity,
+    location: `${path}:${line}`,
+    description: typeof descriptionRaw === "string" ? descriptionRaw : undefined,
+  }
+}
+
+function normalizeSemgrepSeverity(severity: string): VulnerabilitySeverity {
+  const s = severity.toLowerCase()
+  if (s.includes("critical")) return "CRITICAL"
+  if (s.includes("high")) return "HIGH"
+  if (s.includes("medium")) return "MEDIUM"
+  return "LOW"
 }
