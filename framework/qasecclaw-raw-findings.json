@@ -1,0 +1,1559 @@
+[
+  {
+    "id": "semgrep-0004",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.xss.no-direct-response-writer.no-direct-response-writer",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00004.java:70",
+    "description": "Detected a request with potential user-input going into a OutputStream or Writer object. This bypasses any view or template environments, including HTML escaping, which may expose this application to cross-site scripting (XSS) vulnerabilities. Consider using a view technology such as JavaServer Faces (JSFs) which automatically escapes HTML views."
+  },
+  {
+    "id": "semgrep-0008",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.tainted-cmd-from-http-request.tainted-cmd-from-http-request",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00006.java:62",
+    "description": "Detected input from a HTTPServletRequest going into a 'ProcessBuilder' or 'exec' command. This could lead to command injection if variables passed into the exec commands are not properly sanitized. Instead, avoid using these OS commands with user-supplied input, or, if you must use these commands, use a whitelist of specific values."
+  },
+  {
+    "id": "semgrep-0009",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.command-injection-process-builder.command-injection-process-builder",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00006.java:66",
+    "description": "A formatted or concatenated string was detected as input to a ProcessBuilder call. This is dangerous if a variable is controlled by user input and could result in a command injection. Ensure your variables are not controlled by users or sufficiently sanitized."
+  },
+  {
+    "id": "semgrep-0011",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.sqli.tainted-sql-from-http-request.tainted-sql-from-http-request",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00008.java:57",
+    "description": "Detected input from a HTTPServletRequest going into a SQL sink or statement. This could lead to SQL injection if variables in the SQL statement are not properly sanitized. Use parameterized SQL queries or properly sanitize user input instead."
+  },
+  {
+    "id": "semgrep-0014",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.xss.no-direct-response-writer.no-direct-response-writer",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00013.java:56",
+    "description": "Detected a request with potential user-input going into a OutputStream or Writer object. This bypasses any view or template environments, including HTML escaping, which may expose this application to cross-site scripting (XSS) vulnerabilities. Consider using a view technology such as JavaServer Faces (JSFs) which automatically escapes HTML views."
+  },
+  {
+    "id": "semgrep-0015",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.xss.no-direct-response-writer.no-direct-response-writer",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00014.java:56",
+    "description": "Detected a request with potential user-input going into a OutputStream or Writer object. This bypasses any view or template environments, including HTML escaping, which may expose this application to cross-site scripting (XSS) vulnerabilities. Consider using a view technology such as JavaServer Faces (JSFs) which automatically escapes HTML views."
+  },
+  {
+    "id": "semgrep-0016",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.tainted-cmd-from-http-request.tainted-cmd-from-http-request",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00015.java:64",
+    "description": "Detected input from a HTTPServletRequest going into a 'ProcessBuilder' or 'exec' command. This could lead to command injection if variables passed into the exec commands are not properly sanitized. Instead, avoid using these OS commands with user-supplied input, or, if you must use these commands, use a whitelist of specific values."
+  },
+  {
+    "id": "semgrep-0017",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.command-injection-process-builder.command-injection-process-builder",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00015.java:68",
+    "description": "A formatted or concatenated string was detected as input to a ProcessBuilder call. This is dangerous if a variable is controlled by user input and could result in a command injection. Ensure your variables are not controlled by users or sufficiently sanitized."
+  },
+  {
+    "id": "semgrep-0019",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.sqli.tainted-sql-from-http-request.tainted-sql-from-http-request",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00018.java:57",
+    "description": "Detected input from a HTTPServletRequest going into a SQL sink or statement. This could lead to SQL injection if variables in the SQL statement are not properly sanitized. Use parameterized SQL queries or properly sanitize user input instead."
+  },
+  {
+    "id": "semgrep-0027",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.sqli.tainted-sql-from-http-request.tainted-sql-from-http-request",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00024.java:52",
+    "description": "Detected input from a HTTPServletRequest going into a SQL sink or statement. This could lead to SQL injection if variables in the SQL statement are not properly sanitized. Use parameterized SQL queries or properly sanitize user input instead."
+  },
+  {
+    "id": "semgrep-0030",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.sqli.tainted-sql-from-http-request.tainted-sql-from-http-request",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00026.java:49",
+    "description": "Detected input from a HTTPServletRequest going into a SQL sink or statement. This could lead to SQL injection if variables in the SQL statement are not properly sanitized. Use parameterized SQL queries or properly sanitize user input instead."
+  },
+  {
+    "id": "semgrep-0035",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.xss.no-direct-response-writer.no-direct-response-writer",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00030.java:53",
+    "description": "Detected a request with potential user-input going into a OutputStream or Writer object. This bypasses any view or template environments, including HTML escaping, which may expose this application to cross-site scripting (XSS) vulnerabilities. Consider using a view technology such as JavaServer Faces (JSFs) which automatically escapes HTML views."
+  },
+  {
+    "id": "semgrep-0036",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.tainted-session-from-http-request.tainted-session-from-http-request",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00031.java:52",
+    "description": "Detected input from a HTTPServletRequest going into a session command, like `setAttribute`. User input into such a command could lead to an attacker inputting malicious code into your session parameters, blurring the line between what's trusted and untrusted, and therefore leading to a trust boundary violation. This could lead to programmers trusting unvalidated data. Instead, thoroughly sanitize user input before passing it into such function calls."
+  },
+  {
+    "id": "semgrep-0037",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.xss.no-direct-response-writer.no-direct-response-writer",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00031.java:54",
+    "description": "Detected a request with potential user-input going into a OutputStream or Writer object. This bypasses any view or template environments, including HTML escaping, which may expose this application to cross-site scripting (XSS) vulnerabilities. Consider using a view technology such as JavaServer Faces (JSFs) which automatically escapes HTML views."
+  },
+  {
+    "id": "semgrep-0097",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.tainted-session-from-http-request.tainted-session-from-http-request",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00098.java:69",
+    "description": "Detected input from a HTTPServletRequest going into a session command, like `setAttribute`. User input into such a command could lead to an attacker inputting malicious code into your session parameters, blurring the line between what's trusted and untrusted, and therefore leading to a trust boundary violation. This could lead to programmers trusting unvalidated data. Instead, thoroughly sanitize user input before passing it into such function calls."
+  },
+  {
+    "id": "semgrep-0218",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.tainted-session-from-http-request.tainted-session-from-http-request",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00251.java:65",
+    "description": "Detected input from a HTTPServletRequest going into a session command, like `setAttribute`. User input into such a command could lead to an attacker inputting malicious code into your session parameters, blurring the line between what's trusted and untrusted, and therefore leading to a trust boundary violation. This could lead to programmers trusting unvalidated data. Instead, thoroughly sanitize user input before passing it into such function calls."
+  },
+  {
+    "id": "semgrep-0266",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.tainted-session-from-http-request.tainted-session-from-http-request",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00323.java:61",
+    "description": "Detected input from a HTTPServletRequest going into a session command, like `setAttribute`. User input into such a command could lead to an attacker inputting malicious code into your session parameters, blurring the line between what's trusted and untrusted, and therefore leading to a trust boundary violation. This could lead to programmers trusting unvalidated data. Instead, thoroughly sanitize user input before passing it into such function calls."
+  },
+  {
+    "id": "semgrep-0331",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.tainted-session-from-http-request.tainted-session-from-http-request",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00424.java:56",
+    "description": "Detected input from a HTTPServletRequest going into a session command, like `setAttribute`. User input into such a command could lead to an attacker inputting malicious code into your session parameters, blurring the line between what's trusted and untrusted, and therefore leading to a trust boundary violation. This could lead to programmers trusting unvalidated data. Instead, thoroughly sanitize user input before passing it into such function calls."
+  },
+  {
+    "id": "zap-001",
+    "tool": "zap",
+    "vulnerabilityType": "SQL Injection (DAST)",
+    "severity": "HIGH",
+    "location": "/api/benchmark/BenchmarkTest00001",
+    "description": "Parameter 'id' vulnerable to SQL injection.",
+    "cweId": "CWE-89"
+  },
+  {
+    "id": "zap-002",
+    "tool": "zap",
+    "vulnerabilityType": "Missing Authentication",
+    "severity": "MEDIUM",
+    "location": "/api/admin/users",
+    "description": "Admin endpoint accessible without authentication.",
+    "cweId": "CWE-306"
+  },
+  {
+    "id": "zap-003",
+    "tool": "zap",
+    "vulnerabilityType": "Cross-Site Request Forgery (CSRF)",
+    "severity": "MEDIUM",
+    "location": "/api/user/profile",
+    "description": "State-changing request lacks CSRF token.",
+    "cweId": "CWE-352"
+  },
+  {
+    "id": "snyk-001",
+    "tool": "snyk",
+    "vulnerabilityType": "Insecure Dependency",
+    "severity": "HIGH",
+    "location": "commons-fileupload:1.3.3",
+    "description": "Known RCE in Apache Commons FileUpload.",
+    "cweId": "CWE-502"
+  },
+  {
+    "id": "snyk-002",
+    "tool": "snyk",
+    "vulnerabilityType": "Outdated Dependency",
+    "severity": "LOW",
+    "location": "log4j-core:2.14.1",
+    "description": "Log4j version has known vulnerabilities; upgrade to 2.17+.",
+    "cweId": "CWE-1104"
+  },
+  {
+    "id": "semgrep-0010",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.tainted-cmd-from-http-request.tainted-cmd-from-http-request",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00007.java:61",
+    "description": "Detected input from a HTTPServletRequest going into a 'ProcessBuilder' or 'exec' command. This could lead to command injection if variables passed into the exec commands are not properly sanitized. Instead, avoid using these OS commands with user-supplied input, or, if you must use these commands, use a whitelist of specific values."
+  },
+  {
+    "id": "semgrep-0018",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.tainted-cmd-from-http-request.tainted-cmd-from-http-request",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00017.java:63",
+    "description": "Detected input from a HTTPServletRequest going into a 'ProcessBuilder' or 'exec' command. This could lead to command injection if variables passed into the exec commands are not properly sanitized. Instead, avoid using these OS commands with user-supplied input, or, if you must use these commands, use a whitelist of specific values."
+  },
+  {
+    "id": "semgrep-0058",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.tainted-cmd-from-http-request.tainted-cmd-from-http-request",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00051.java:60",
+    "description": "Detected input from a HTTPServletRequest going into a 'ProcessBuilder' or 'exec' command. This could lead to command injection if variables passed into the exec commands are not properly sanitized. Instead, avoid using these OS commands with user-supplied input, or, if you must use these commands, use a whitelist of specific values."
+  },
+  {
+    "id": "semgrep-0059",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.command-injection-process-builder.command-injection-process-builder",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00051.java:60",
+    "description": "A formatted or concatenated string was detected as input to a ProcessBuilder call. This is dangerous if a variable is controlled by user input and could result in a command injection. Ensure your variables are not controlled by users or sufficiently sanitized."
+  },
+  {
+    "id": "semgrep-0060",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.tainted-cmd-from-http-request.tainted-cmd-from-http-request",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00051.java:63",
+    "description": "Detected input from a HTTPServletRequest going into a 'ProcessBuilder' or 'exec' command. This could lead to command injection if variables passed into the exec commands are not properly sanitized. Instead, avoid using these OS commands with user-supplied input, or, if you must use these commands, use a whitelist of specific values."
+  },
+  {
+    "id": "semgrep-0081",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.tainted-cmd-from-http-request.tainted-cmd-from-http-request",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00077.java:97",
+    "description": "Detected input from a HTTPServletRequest going into a 'ProcessBuilder' or 'exec' command. This could lead to command injection if variables passed into the exec commands are not properly sanitized. Instead, avoid using these OS commands with user-supplied input, or, if you must use these commands, use a whitelist of specific values."
+  },
+  {
+    "id": "semgrep-0082",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.command-injection-process-builder.command-injection-process-builder",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00077.java:99",
+    "description": "A formatted or concatenated string was detected as input to a ProcessBuilder call. This is dangerous if a variable is controlled by user input and could result in a command injection. Ensure your variables are not controlled by users or sufficiently sanitized."
+  },
+  {
+    "id": "semgrep-0093",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.tainted-cmd-from-http-request.tainted-cmd-from-http-request",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00090.java:82",
+    "description": "Detected input from a HTTPServletRequest going into a 'ProcessBuilder' or 'exec' command. This could lead to command injection if variables passed into the exec commands are not properly sanitized. Instead, avoid using these OS commands with user-supplied input, or, if you must use these commands, use a whitelist of specific values."
+  },
+  {
+    "id": "semgrep-0094",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.tainted-cmd-from-http-request.tainted-cmd-from-http-request",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00091.java:77",
+    "description": "Detected input from a HTTPServletRequest going into a 'ProcessBuilder' or 'exec' command. This could lead to command injection if variables passed into the exec commands are not properly sanitized. Instead, avoid using these OS commands with user-supplied input, or, if you must use these commands, use a whitelist of specific values."
+  },
+  {
+    "id": "semgrep-0095",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.tainted-cmd-from-http-request.tainted-cmd-from-http-request",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00092.java:96",
+    "description": "Detected input from a HTTPServletRequest going into a 'ProcessBuilder' or 'exec' command. This could lead to command injection if variables passed into the exec commands are not properly sanitized. Instead, avoid using these OS commands with user-supplied input, or, if you must use these commands, use a whitelist of specific values."
+  },
+  {
+    "id": "semgrep-0152",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.tainted-cmd-from-http-request.tainted-cmd-from-http-request",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00158.java:68",
+    "description": "Detected input from a HTTPServletRequest going into a 'ProcessBuilder' or 'exec' command. This could lead to command injection if variables passed into the exec commands are not properly sanitized. Instead, avoid using these OS commands with user-supplied input, or, if you must use these commands, use a whitelist of specific values."
+  },
+  {
+    "id": "semgrep-0153",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.command-injection-process-builder.command-injection-process-builder",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00158.java:70",
+    "description": "A formatted or concatenated string was detected as input to a ProcessBuilder call. This is dangerous if a variable is controlled by user input and could result in a command injection. Ensure your variables are not controlled by users or sufficiently sanitized."
+  },
+  {
+    "id": "semgrep-0154",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.tainted-cmd-from-http-request.tainted-cmd-from-http-request",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00159.java:67",
+    "description": "Detected input from a HTTPServletRequest going into a 'ProcessBuilder' or 'exec' command. This could lead to command injection if variables passed into the exec commands are not properly sanitized. Instead, avoid using these OS commands with user-supplied input, or, if you must use these commands, use a whitelist of specific values."
+  },
+  {
+    "id": "semgrep-0155",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.command-injection-process-builder.command-injection-process-builder",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00159.java:67",
+    "description": "A formatted or concatenated string was detected as input to a ProcessBuilder call. This is dangerous if a variable is controlled by user input and could result in a command injection. Ensure your variables are not controlled by users or sufficiently sanitized."
+  },
+  {
+    "id": "semgrep-0156",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.tainted-cmd-from-http-request.tainted-cmd-from-http-request",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00159.java:70",
+    "description": "Detected input from a HTTPServletRequest going into a 'ProcessBuilder' or 'exec' command. This could lead to command injection if variables passed into the exec commands are not properly sanitized. Instead, avoid using these OS commands with user-supplied input, or, if you must use these commands, use a whitelist of specific values."
+  },
+  {
+    "id": "semgrep-0168",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.tainted-cmd-from-http-request.tainted-cmd-from-http-request",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00174.java:63",
+    "description": "Detected input from a HTTPServletRequest going into a 'ProcessBuilder' or 'exec' command. This could lead to command injection if variables passed into the exec commands are not properly sanitized. Instead, avoid using these OS commands with user-supplied input, or, if you must use these commands, use a whitelist of specific values."
+  },
+  {
+    "id": "semgrep-0169",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.tainted-cmd-from-http-request.tainted-cmd-from-http-request",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00176.java:63",
+    "description": "Detected input from a HTTPServletRequest going into a 'ProcessBuilder' or 'exec' command. This could lead to command injection if variables passed into the exec commands are not properly sanitized. Instead, avoid using these OS commands with user-supplied input, or, if you must use these commands, use a whitelist of specific values."
+  },
+  {
+    "id": "semgrep-0248",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.tainted-cmd-from-http-request.tainted-cmd-from-http-request",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00293.java:72",
+    "description": "Detected input from a HTTPServletRequest going into a 'ProcessBuilder' or 'exec' command. This could lead to command injection if variables passed into the exec commands are not properly sanitized. Instead, avoid using these OS commands with user-supplied input, or, if you must use these commands, use a whitelist of specific values."
+  },
+  {
+    "id": "semgrep-0249",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.command-injection-process-builder.command-injection-process-builder",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00293.java:76",
+    "description": "A formatted or concatenated string was detected as input to a ProcessBuilder call. This is dangerous if a variable is controlled by user input and could result in a command injection. Ensure your variables are not controlled by users or sufficiently sanitized."
+  },
+  {
+    "id": "semgrep-0250",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.tainted-cmd-from-http-request.tainted-cmd-from-http-request",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00294.java:70",
+    "description": "Detected input from a HTTPServletRequest going into a 'ProcessBuilder' or 'exec' command. This could lead to command injection if variables passed into the exec commands are not properly sanitized. Instead, avoid using these OS commands with user-supplied input, or, if you must use these commands, use a whitelist of specific values."
+  },
+  {
+    "id": "semgrep-0251",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.command-injection-process-builder.command-injection-process-builder",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00294.java:72",
+    "description": "A formatted or concatenated string was detected as input to a ProcessBuilder call. This is dangerous if a variable is controlled by user input and could result in a command injection. Ensure your variables are not controlled by users or sufficiently sanitized."
+  },
+  {
+    "id": "semgrep-0252",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.tainted-cmd-from-http-request.tainted-cmd-from-http-request",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00295.java:72",
+    "description": "Detected input from a HTTPServletRequest going into a 'ProcessBuilder' or 'exec' command. This could lead to command injection if variables passed into the exec commands are not properly sanitized. Instead, avoid using these OS commands with user-supplied input, or, if you must use these commands, use a whitelist of specific values."
+  },
+  {
+    "id": "semgrep-0253",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.command-injection-process-builder.command-injection-process-builder",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00295.java:72",
+    "description": "A formatted or concatenated string was detected as input to a ProcessBuilder call. This is dangerous if a variable is controlled by user input and could result in a command injection. Ensure your variables are not controlled by users or sufficiently sanitized."
+  },
+  {
+    "id": "semgrep-0254",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.tainted-cmd-from-http-request.tainted-cmd-from-http-request",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00295.java:75",
+    "description": "Detected input from a HTTPServletRequest going into a 'ProcessBuilder' or 'exec' command. This could lead to command injection if variables passed into the exec commands are not properly sanitized. Instead, avoid using these OS commands with user-supplied input, or, if you must use these commands, use a whitelist of specific values."
+  },
+  {
+    "id": "semgrep-0260",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.tainted-cmd-from-http-request.tainted-cmd-from-http-request",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00302.java:69",
+    "description": "Detected input from a HTTPServletRequest going into a 'ProcessBuilder' or 'exec' command. This could lead to command injection if variables passed into the exec commands are not properly sanitized. Instead, avoid using these OS commands with user-supplied input, or, if you must use these commands, use a whitelist of specific values."
+  },
+  {
+    "id": "semgrep-0261",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.tainted-cmd-from-http-request.tainted-cmd-from-http-request",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00303.java:83",
+    "description": "Detected input from a HTTPServletRequest going into a 'ProcessBuilder' or 'exec' command. This could lead to command injection if variables passed into the exec commands are not properly sanitized. Instead, avoid using these OS commands with user-supplied input, or, if you must use these commands, use a whitelist of specific values."
+  },
+  {
+    "id": "semgrep-0262",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.tainted-cmd-from-http-request.tainted-cmd-from-http-request",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00306.java:69",
+    "description": "Detected input from a HTTPServletRequest going into a 'ProcessBuilder' or 'exec' command. This could lead to command injection if variables passed into the exec commands are not properly sanitized. Instead, avoid using these OS commands with user-supplied input, or, if you must use these commands, use a whitelist of specific values."
+  },
+  {
+    "id": "semgrep-0265",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.tainted-cmd-from-http-request.tainted-cmd-from-http-request",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00311.java:80",
+    "description": "Detected input from a HTTPServletRequest going into a 'ProcessBuilder' or 'exec' command. This could lead to command injection if variables passed into the exec commands are not properly sanitized. Instead, avoid using these OS commands with user-supplied input, or, if you must use these commands, use a whitelist of specific values."
+  },
+  {
+    "id": "semgrep-0320",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.command-injection-process-builder.command-injection-process-builder",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00396.java:67",
+    "description": "A formatted or concatenated string was detected as input to a ProcessBuilder call. This is dangerous if a variable is controlled by user input and could result in a command injection. Ensure your variables are not controlled by users or sufficiently sanitized."
+  },
+  {
+    "id": "semgrep-0328",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.tainted-cmd-from-http-request.tainted-cmd-from-http-request",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00406.java:74",
+    "description": "Detected input from a HTTPServletRequest going into a 'ProcessBuilder' or 'exec' command. This could lead to command injection if variables passed into the exec commands are not properly sanitized. Instead, avoid using these OS commands with user-supplied input, or, if you must use these commands, use a whitelist of specific values."
+  },
+  {
+    "id": "semgrep-0329",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.tainted-cmd-from-http-request.tainted-cmd-from-http-request",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00408.java:76",
+    "description": "Detected input from a HTTPServletRequest going into a 'ProcessBuilder' or 'exec' command. This could lead to command injection if variables passed into the exec commands are not properly sanitized. Instead, avoid using these OS commands with user-supplied input, or, if you must use these commands, use a whitelist of specific values."
+  },
+  {
+    "id": "semgrep-0330",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.tainted-cmd-from-http-request.tainted-cmd-from-http-request",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00409.java:90",
+    "description": "Detected input from a HTTPServletRequest going into a 'ProcessBuilder' or 'exec' command. This could lead to command injection if variables passed into the exec commands are not properly sanitized. Instead, avoid using these OS commands with user-supplied input, or, if you must use these commands, use a whitelist of specific values."
+  },
+  {
+    "id": "semgrep-0386",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.tainted-cmd-from-http-request.tainted-cmd-from-http-request",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00480.java:67",
+    "description": "Detected input from a HTTPServletRequest going into a 'ProcessBuilder' or 'exec' command. This could lead to command injection if variables passed into the exec commands are not properly sanitized. Instead, avoid using these OS commands with user-supplied input, or, if you must use these commands, use a whitelist of specific values."
+  },
+  {
+    "id": "semgrep-0387",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.command-injection-process-builder.command-injection-process-builder",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00480.java:71",
+    "description": "A formatted or concatenated string was detected as input to a ProcessBuilder call. This is dangerous if a variable is controlled by user input and could result in a command injection. Ensure your variables are not controlled by users or sufficiently sanitized."
+  },
+  {
+    "id": "semgrep-0401",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.tainted-cmd-from-http-request.tainted-cmd-from-http-request",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00496.java:68",
+    "description": "Detected input from a HTTPServletRequest going into a 'ProcessBuilder' or 'exec' command. This could lead to command injection if variables passed into the exec commands are not properly sanitized. Instead, avoid using these OS commands with user-supplied input, or, if you must use these commands, use a whitelist of specific values."
+  },
+  {
+    "id": "semgrep-0402",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.tainted-cmd-from-http-request.tainted-cmd-from-http-request",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00497.java:80",
+    "description": "Detected input from a HTTPServletRequest going into a 'ProcessBuilder' or 'exec' command. This could lead to command injection if variables passed into the exec commands are not properly sanitized. Instead, avoid using these OS commands with user-supplied input, or, if you must use these commands, use a whitelist of specific values."
+  },
+  {
+    "id": "semgrep-0403",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.tainted-cmd-from-http-request.tainted-cmd-from-http-request",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00498.java:68",
+    "description": "Detected input from a HTTPServletRequest going into a 'ProcessBuilder' or 'exec' command. This could lead to command injection if variables passed into the exec commands are not properly sanitized. Instead, avoid using these OS commands with user-supplied input, or, if you must use these commands, use a whitelist of specific values."
+  },
+  {
+    "id": "semgrep-0404",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.tainted-cmd-from-http-request.tainted-cmd-from-http-request",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00499.java:62",
+    "description": "Detected input from a HTTPServletRequest going into a 'ProcessBuilder' or 'exec' command. This could lead to command injection if variables passed into the exec commands are not properly sanitized. Instead, avoid using these OS commands with user-supplied input, or, if you must use these commands, use a whitelist of specific values."
+  },
+  {
+    "id": "semgrep-0405",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.tainted-cmd-from-http-request.tainted-cmd-from-http-request",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00500.java:67",
+    "description": "Detected input from a HTTPServletRequest going into a 'ProcessBuilder' or 'exec' command. This could lead to command injection if variables passed into the exec commands are not properly sanitized. Instead, avoid using these OS commands with user-supplied input, or, if you must use these commands, use a whitelist of specific values."
+  },
+  {
+    "id": "semgrep-0458",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.tainted-cmd-from-http-request.tainted-cmd-from-http-request",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00567.java:78",
+    "description": "Detected input from a HTTPServletRequest going into a 'ProcessBuilder' or 'exec' command. This could lead to command injection if variables passed into the exec commands are not properly sanitized. Instead, avoid using these OS commands with user-supplied input, or, if you must use these commands, use a whitelist of specific values."
+  },
+  {
+    "id": "semgrep-0459",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.tainted-cmd-from-http-request.tainted-cmd-from-http-request",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00568.java:87",
+    "description": "Detected input from a HTTPServletRequest going into a 'ProcessBuilder' or 'exec' command. This could lead to command injection if variables passed into the exec commands are not properly sanitized. Instead, avoid using these OS commands with user-supplied input, or, if you must use these commands, use a whitelist of specific values."
+  },
+  {
+    "id": "semgrep-0461",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.tainted-cmd-from-http-request.tainted-cmd-from-http-request",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00572.java:77",
+    "description": "Detected input from a HTTPServletRequest going into a 'ProcessBuilder' or 'exec' command. This could lead to command injection if variables passed into the exec commands are not properly sanitized. Instead, avoid using these OS commands with user-supplied input, or, if you must use these commands, use a whitelist of specific values."
+  },
+  {
+    "id": "semgrep-0464",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.tainted-cmd-from-http-request.tainted-cmd-from-http-request",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00576.java:74",
+    "description": "Detected input from a HTTPServletRequest going into a 'ProcessBuilder' or 'exec' command. This could lead to command injection if variables passed into the exec commands are not properly sanitized. Instead, avoid using these OS commands with user-supplied input, or, if you must use these commands, use a whitelist of specific values."
+  },
+  {
+    "id": "semgrep-0566",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.tainted-cmd-from-http-request.tainted-cmd-from-http-request",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00731.java:60",
+    "description": "Detected input from a HTTPServletRequest going into a 'ProcessBuilder' or 'exec' command. This could lead to command injection if variables passed into the exec commands are not properly sanitized. Instead, avoid using these OS commands with user-supplied input, or, if you must use these commands, use a whitelist of specific values."
+  },
+  {
+    "id": "semgrep-0567",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.command-injection-process-builder.command-injection-process-builder",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00731.java:62",
+    "description": "A formatted or concatenated string was detected as input to a ProcessBuilder call. This is dangerous if a variable is controlled by user input and could result in a command injection. Ensure your variables are not controlled by users or sufficiently sanitized."
+  },
+  {
+    "id": "semgrep-0627",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.command-injection-process-builder.command-injection-process-builder",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00815.java:86",
+    "description": "A formatted or concatenated string was detected as input to a ProcessBuilder call. This is dangerous if a variable is controlled by user input and could result in a command injection. Ensure your variables are not controlled by users or sufficiently sanitized."
+  },
+  {
+    "id": "semgrep-0628",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.command-injection-process-builder.command-injection-process-builder",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00816.java:91",
+    "description": "A formatted or concatenated string was detected as input to a ProcessBuilder call. This is dangerous if a variable is controlled by user input and could result in a command injection. Ensure your variables are not controlled by users or sufficiently sanitized."
+  },
+  {
+    "id": "semgrep-0635",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.tainted-cmd-from-http-request.tainted-cmd-from-http-request",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00825.java:83",
+    "description": "Detected input from a HTTPServletRequest going into a 'ProcessBuilder' or 'exec' command. This could lead to command injection if variables passed into the exec commands are not properly sanitized. Instead, avoid using these OS commands with user-supplied input, or, if you must use these commands, use a whitelist of specific values."
+  },
+  {
+    "id": "semgrep-0680",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.command-injection-process-builder.command-injection-process-builder",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00895.java:71",
+    "description": "A formatted or concatenated string was detected as input to a ProcessBuilder call. This is dangerous if a variable is controlled by user input and could result in a command injection. Ensure your variables are not controlled by users or sufficiently sanitized."
+  },
+  {
+    "id": "semgrep-0683",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.tainted-cmd-from-http-request.tainted-cmd-from-http-request",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00897.java:80",
+    "description": "Detected input from a HTTPServletRequest going into a 'ProcessBuilder' or 'exec' command. This could lead to command injection if variables passed into the exec commands are not properly sanitized. Instead, avoid using these OS commands with user-supplied input, or, if you must use these commands, use a whitelist of specific values."
+  },
+  {
+    "id": "semgrep-0684",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.command-injection-process-builder.command-injection-process-builder",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00897.java:80",
+    "description": "A formatted or concatenated string was detected as input to a ProcessBuilder call. This is dangerous if a variable is controlled by user input and could result in a command injection. Ensure your variables are not controlled by users or sufficiently sanitized."
+  },
+  {
+    "id": "semgrep-0685",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.tainted-cmd-from-http-request.tainted-cmd-from-http-request",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00897.java:83",
+    "description": "Detected input from a HTTPServletRequest going into a 'ProcessBuilder' or 'exec' command. This could lead to command injection if variables passed into the exec commands are not properly sanitized. Instead, avoid using these OS commands with user-supplied input, or, if you must use these commands, use a whitelist of specific values."
+  },
+  {
+    "id": "semgrep-0692",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.tainted-cmd-from-http-request.tainted-cmd-from-http-request",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00905.java:70",
+    "description": "Detected input from a HTTPServletRequest going into a 'ProcessBuilder' or 'exec' command. This could lead to command injection if variables passed into the exec commands are not properly sanitized. Instead, avoid using these OS commands with user-supplied input, or, if you must use these commands, use a whitelist of specific values."
+  },
+  {
+    "id": "semgrep-0693",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.tainted-cmd-from-http-request.tainted-cmd-from-http-request",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00906.java:77",
+    "description": "Detected input from a HTTPServletRequest going into a 'ProcessBuilder' or 'exec' command. This could lead to command injection if variables passed into the exec commands are not properly sanitized. Instead, avoid using these OS commands with user-supplied input, or, if you must use these commands, use a whitelist of specific values."
+  },
+  {
+    "id": "semgrep-0720",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.tainted-cmd-from-http-request.tainted-cmd-from-http-request",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00968.java:78",
+    "description": "Detected input from a HTTPServletRequest going into a 'ProcessBuilder' or 'exec' command. This could lead to command injection if variables passed into the exec commands are not properly sanitized. Instead, avoid using these OS commands with user-supplied input, or, if you must use these commands, use a whitelist of specific values."
+  },
+  {
+    "id": "semgrep-0721",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.command-injection-process-builder.command-injection-process-builder",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00968.java:80",
+    "description": "A formatted or concatenated string was detected as input to a ProcessBuilder call. This is dangerous if a variable is controlled by user input and could result in a command injection. Ensure your variables are not controlled by users or sufficiently sanitized."
+  },
+  {
+    "id": "semgrep-0734",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.tainted-cmd-from-http-request.tainted-cmd-from-http-request",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00979.java:91",
+    "description": "Detected input from a HTTPServletRequest going into a 'ProcessBuilder' or 'exec' command. This could lead to command injection if variables passed into the exec commands are not properly sanitized. Instead, avoid using these OS commands with user-supplied input, or, if you must use these commands, use a whitelist of specific values."
+  },
+  {
+    "id": "semgrep-0736",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.tainted-cmd-from-http-request.tainted-cmd-from-http-request",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest00981.java:91",
+    "description": "Detected input from a HTTPServletRequest going into a 'ProcessBuilder' or 'exec' command. This could lead to command injection if variables passed into the exec commands are not properly sanitized. Instead, avoid using these OS commands with user-supplied input, or, if you must use these commands, use a whitelist of specific values."
+  },
+  {
+    "id": "semgrep-0816",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.tainted-cmd-from-http-request.tainted-cmd-from-http-request",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01064.java:62",
+    "description": "Detected input from a HTTPServletRequest going into a 'ProcessBuilder' or 'exec' command. This could lead to command injection if variables passed into the exec commands are not properly sanitized. Instead, avoid using these OS commands with user-supplied input, or, if you must use these commands, use a whitelist of specific values."
+  },
+  {
+    "id": "semgrep-0818",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.tainted-cmd-from-http-request.tainted-cmd-from-http-request",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01066.java:62",
+    "description": "Detected input from a HTTPServletRequest going into a 'ProcessBuilder' or 'exec' command. This could lead to command injection if variables passed into the exec commands are not properly sanitized. Instead, avoid using these OS commands with user-supplied input, or, if you must use these commands, use a whitelist of specific values."
+  },
+  {
+    "id": "semgrep-0939",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.tainted-cmd-from-http-request.tainted-cmd-from-http-request",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01190.java:64",
+    "description": "Detected input from a HTTPServletRequest going into a 'ProcessBuilder' or 'exec' command. This could lead to command injection if variables passed into the exec commands are not properly sanitized. Instead, avoid using these OS commands with user-supplied input, or, if you must use these commands, use a whitelist of specific values."
+  },
+  {
+    "id": "semgrep-0940",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.tainted-cmd-from-http-request.tainted-cmd-from-http-request",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01191.java:64",
+    "description": "Detected input from a HTTPServletRequest going into a 'ProcessBuilder' or 'exec' command. This could lead to command injection if variables passed into the exec commands are not properly sanitized. Instead, avoid using these OS commands with user-supplied input, or, if you must use these commands, use a whitelist of specific values."
+  },
+  {
+    "id": "semgrep-0941",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.tainted-cmd-from-http-request.tainted-cmd-from-http-request",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01192.java:64",
+    "description": "Detected input from a HTTPServletRequest going into a 'ProcessBuilder' or 'exec' command. This could lead to command injection if variables passed into the exec commands are not properly sanitized. Instead, avoid using these OS commands with user-supplied input, or, if you must use these commands, use a whitelist of specific values."
+  },
+  {
+    "id": "semgrep-0943",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.tainted-cmd-from-http-request.tainted-cmd-from-http-request",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01194.java:65",
+    "description": "Detected input from a HTTPServletRequest going into a 'ProcessBuilder' or 'exec' command. This could lead to command injection if variables passed into the exec commands are not properly sanitized. Instead, avoid using these OS commands with user-supplied input, or, if you must use these commands, use a whitelist of specific values."
+  },
+  {
+    "id": "semgrep-1029",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.tainted-cmd-from-http-request.tainted-cmd-from-http-request",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01270.java:60",
+    "description": "Detected input from a HTTPServletRequest going into a 'ProcessBuilder' or 'exec' command. This could lead to command injection if variables passed into the exec commands are not properly sanitized. Instead, avoid using these OS commands with user-supplied input, or, if you must use these commands, use a whitelist of specific values."
+  },
+  {
+    "id": "semgrep-1030",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.command-injection-process-builder.command-injection-process-builder",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01270.java:60",
+    "description": "A formatted or concatenated string was detected as input to a ProcessBuilder call. This is dangerous if a variable is controlled by user input and could result in a command injection. Ensure your variables are not controlled by users or sufficiently sanitized."
+  },
+  {
+    "id": "semgrep-1031",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.tainted-cmd-from-http-request.tainted-cmd-from-http-request",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01270.java:63",
+    "description": "Detected input from a HTTPServletRequest going into a 'ProcessBuilder' or 'exec' command. This could lead to command injection if variables passed into the exec commands are not properly sanitized. Instead, avoid using these OS commands with user-supplied input, or, if you must use these commands, use a whitelist of specific values."
+  },
+  {
+    "id": "semgrep-1046",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.tainted-cmd-from-http-request.tainted-cmd-from-http-request",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01285.java:57",
+    "description": "Detected input from a HTTPServletRequest going into a 'ProcessBuilder' or 'exec' command. This could lead to command injection if variables passed into the exec commands are not properly sanitized. Instead, avoid using these OS commands with user-supplied input, or, if you must use these commands, use a whitelist of specific values."
+  },
+  {
+    "id": "semgrep-1047",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.tainted-cmd-from-http-request.tainted-cmd-from-http-request",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01286.java:69",
+    "description": "Detected input from a HTTPServletRequest going into a 'ProcessBuilder' or 'exec' command. This could lead to command injection if variables passed into the exec commands are not properly sanitized. Instead, avoid using these OS commands with user-supplied input, or, if you must use these commands, use a whitelist of specific values."
+  },
+  {
+    "id": "semgrep-1048",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.tainted-cmd-from-http-request.tainted-cmd-from-http-request",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01287.java:57",
+    "description": "Detected input from a HTTPServletRequest going into a 'ProcessBuilder' or 'exec' command. This could lead to command injection if variables passed into the exec commands are not properly sanitized. Instead, avoid using these OS commands with user-supplied input, or, if you must use these commands, use a whitelist of specific values."
+  },
+  {
+    "id": "semgrep-1049",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.tainted-cmd-from-http-request.tainted-cmd-from-http-request",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01288.java:57",
+    "description": "Detected input from a HTTPServletRequest going into a 'ProcessBuilder' or 'exec' command. This could lead to command injection if variables passed into the exec commands are not properly sanitized. Instead, avoid using these OS commands with user-supplied input, or, if you must use these commands, use a whitelist of specific values."
+  },
+  {
+    "id": "semgrep-1129",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.tainted-cmd-from-http-request.tainted-cmd-from-http-request",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01360.java:61",
+    "description": "Detected input from a HTTPServletRequest going into a 'ProcessBuilder' or 'exec' command. This could lead to command injection if variables passed into the exec commands are not properly sanitized. Instead, avoid using these OS commands with user-supplied input, or, if you must use these commands, use a whitelist of specific values."
+  },
+  {
+    "id": "semgrep-1130",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.tainted-cmd-from-http-request.tainted-cmd-from-http-request",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01361.java:61",
+    "description": "Detected input from a HTTPServletRequest going into a 'ProcessBuilder' or 'exec' command. This could lead to command injection if variables passed into the exec commands are not properly sanitized. Instead, avoid using these OS commands with user-supplied input, or, if you must use these commands, use a whitelist of specific values."
+  },
+  {
+    "id": "semgrep-1131",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.tainted-cmd-from-http-request.tainted-cmd-from-http-request",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01362.java:75",
+    "description": "Detected input from a HTTPServletRequest going into a 'ProcessBuilder' or 'exec' command. This could lead to command injection if variables passed into the exec commands are not properly sanitized. Instead, avoid using these OS commands with user-supplied input, or, if you must use these commands, use a whitelist of specific values."
+  },
+  {
+    "id": "semgrep-1132",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.tainted-cmd-from-http-request.tainted-cmd-from-http-request",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01363.java:60",
+    "description": "Detected input from a HTTPServletRequest going into a 'ProcessBuilder' or 'exec' command. This could lead to command injection if variables passed into the exec commands are not properly sanitized. Instead, avoid using these OS commands with user-supplied input, or, if you must use these commands, use a whitelist of specific values."
+  },
+  {
+    "id": "semgrep-1199",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.tainted-cmd-from-http-request.tainted-cmd-from-http-request",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01430.java:74",
+    "description": "Detected input from a HTTPServletRequest going into a 'ProcessBuilder' or 'exec' command. This could lead to command injection if variables passed into the exec commands are not properly sanitized. Instead, avoid using these OS commands with user-supplied input, or, if you must use these commands, use a whitelist of specific values."
+  },
+  {
+    "id": "semgrep-1200",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.command-injection-process-builder.command-injection-process-builder",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01430.java:74",
+    "description": "A formatted or concatenated string was detected as input to a ProcessBuilder call. This is dangerous if a variable is controlled by user input and could result in a command injection. Ensure your variables are not controlled by users or sufficiently sanitized."
+  },
+  {
+    "id": "semgrep-1201",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.tainted-cmd-from-http-request.tainted-cmd-from-http-request",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01430.java:77",
+    "description": "Detected input from a HTTPServletRequest going into a 'ProcessBuilder' or 'exec' command. This could lead to command injection if variables passed into the exec commands are not properly sanitized. Instead, avoid using these OS commands with user-supplied input, or, if you must use these commands, use a whitelist of specific values."
+  },
+  {
+    "id": "semgrep-1211",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.tainted-cmd-from-http-request.tainted-cmd-from-http-request",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01441.java:83",
+    "description": "Detected input from a HTTPServletRequest going into a 'ProcessBuilder' or 'exec' command. This could lead to command injection if variables passed into the exec commands are not properly sanitized. Instead, avoid using these OS commands with user-supplied input, or, if you must use these commands, use a whitelist of specific values."
+  },
+  {
+    "id": "semgrep-1216",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.tainted-cmd-from-http-request.tainted-cmd-from-http-request",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01446.java:72",
+    "description": "Detected input from a HTTPServletRequest going into a 'ProcessBuilder' or 'exec' command. This could lead to command injection if variables passed into the exec commands are not properly sanitized. Instead, avoid using these OS commands with user-supplied input, or, if you must use these commands, use a whitelist of specific values."
+  },
+  {
+    "id": "semgrep-1284",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.tainted-cmd-from-http-request.tainted-cmd-from-http-request",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01517.java:62",
+    "description": "Detected input from a HTTPServletRequest going into a 'ProcessBuilder' or 'exec' command. This could lead to command injection if variables passed into the exec commands are not properly sanitized. Instead, avoid using these OS commands with user-supplied input, or, if you must use these commands, use a whitelist of specific values."
+  },
+  {
+    "id": "semgrep-1285",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.command-injection-process-builder.command-injection-process-builder",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01517.java:62",
+    "description": "A formatted or concatenated string was detected as input to a ProcessBuilder call. This is dangerous if a variable is controlled by user input and could result in a command injection. Ensure your variables are not controlled by users or sufficiently sanitized."
+  },
+  {
+    "id": "semgrep-1286",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.tainted-cmd-from-http-request.tainted-cmd-from-http-request",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01517.java:65",
+    "description": "Detected input from a HTTPServletRequest going into a 'ProcessBuilder' or 'exec' command. This could lead to command injection if variables passed into the exec commands are not properly sanitized. Instead, avoid using these OS commands with user-supplied input, or, if you must use these commands, use a whitelist of specific values."
+  },
+  {
+    "id": "semgrep-1296",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.tainted-cmd-from-http-request.tainted-cmd-from-http-request",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01531.java:59",
+    "description": "Detected input from a HTTPServletRequest going into a 'ProcessBuilder' or 'exec' command. This could lead to command injection if variables passed into the exec commands are not properly sanitized. Instead, avoid using these OS commands with user-supplied input, or, if you must use these commands, use a whitelist of specific values."
+  },
+  {
+    "id": "semgrep-1298",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.tainted-cmd-from-http-request.tainted-cmd-from-http-request",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01533.java:56",
+    "description": "Detected input from a HTTPServletRequest going into a 'ProcessBuilder' or 'exec' command. This could lead to command injection if variables passed into the exec commands are not properly sanitized. Instead, avoid using these OS commands with user-supplied input, or, if you must use these commands, use a whitelist of specific values."
+  },
+  {
+    "id": "semgrep-1337",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.tainted-cmd-from-http-request.tainted-cmd-from-http-request",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01601.java:60",
+    "description": "Detected input from a HTTPServletRequest going into a 'ProcessBuilder' or 'exec' command. This could lead to command injection if variables passed into the exec commands are not properly sanitized. Instead, avoid using these OS commands with user-supplied input, or, if you must use these commands, use a whitelist of specific values."
+  },
+  {
+    "id": "semgrep-1338",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.command-injection-process-builder.command-injection-process-builder",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01601.java:62",
+    "description": "A formatted or concatenated string was detected as input to a ProcessBuilder call. This is dangerous if a variable is controlled by user input and could result in a command injection. Ensure your variables are not controlled by users or sufficiently sanitized."
+  },
+  {
+    "id": "semgrep-1344",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.tainted-cmd-from-http-request.tainted-cmd-from-http-request",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01609.java:60",
+    "description": "Detected input from a HTTPServletRequest going into a 'ProcessBuilder' or 'exec' command. This could lead to command injection if variables passed into the exec commands are not properly sanitized. Instead, avoid using these OS commands with user-supplied input, or, if you must use these commands, use a whitelist of specific values."
+  },
+  {
+    "id": "semgrep-1345",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.tainted-cmd-from-http-request.tainted-cmd-from-http-request",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01610.java:60",
+    "description": "Detected input from a HTTPServletRequest going into a 'ProcessBuilder' or 'exec' command. This could lead to command injection if variables passed into the exec commands are not properly sanitized. Instead, avoid using these OS commands with user-supplied input, or, if you must use these commands, use a whitelist of specific values."
+  },
+  {
+    "id": "semgrep-1417",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.command-injection-process-builder.command-injection-process-builder",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01672.java:86",
+    "description": "A formatted or concatenated string was detected as input to a ProcessBuilder call. This is dangerous if a variable is controlled by user input and could result in a command injection. Ensure your variables are not controlled by users or sufficiently sanitized."
+  },
+  {
+    "id": "semgrep-1418",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.tainted-cmd-from-http-request.tainted-cmd-from-http-request",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01673.java:82",
+    "description": "Detected input from a HTTPServletRequest going into a 'ProcessBuilder' or 'exec' command. This could lead to command injection if variables passed into the exec commands are not properly sanitized. Instead, avoid using these OS commands with user-supplied input, or, if you must use these commands, use a whitelist of specific values."
+  },
+  {
+    "id": "semgrep-1419",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.command-injection-process-builder.command-injection-process-builder",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01673.java:84",
+    "description": "A formatted or concatenated string was detected as input to a ProcessBuilder call. This is dangerous if a variable is controlled by user input and could result in a command injection. Ensure your variables are not controlled by users or sufficiently sanitized."
+  },
+  {
+    "id": "semgrep-1420",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.tainted-cmd-from-http-request.tainted-cmd-from-http-request",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01674.java:84",
+    "description": "Detected input from a HTTPServletRequest going into a 'ProcessBuilder' or 'exec' command. This could lead to command injection if variables passed into the exec commands are not properly sanitized. Instead, avoid using these OS commands with user-supplied input, or, if you must use these commands, use a whitelist of specific values."
+  },
+  {
+    "id": "semgrep-1421",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.command-injection-process-builder.command-injection-process-builder",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01674.java:84",
+    "description": "A formatted or concatenated string was detected as input to a ProcessBuilder call. This is dangerous if a variable is controlled by user input and could result in a command injection. Ensure your variables are not controlled by users or sufficiently sanitized."
+  },
+  {
+    "id": "semgrep-1422",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.tainted-cmd-from-http-request.tainted-cmd-from-http-request",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01674.java:87",
+    "description": "Detected input from a HTTPServletRequest going into a 'ProcessBuilder' or 'exec' command. This could lead to command injection if variables passed into the exec commands are not properly sanitized. Instead, avoid using these OS commands with user-supplied input, or, if you must use these commands, use a whitelist of specific values."
+  },
+  {
+    "id": "semgrep-1432",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.tainted-cmd-from-http-request.tainted-cmd-from-http-request",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01685.java:95",
+    "description": "Detected input from a HTTPServletRequest going into a 'ProcessBuilder' or 'exec' command. This could lead to command injection if variables passed into the exec commands are not properly sanitized. Instead, avoid using these OS commands with user-supplied input, or, if you must use these commands, use a whitelist of specific values."
+  },
+  {
+    "id": "semgrep-1436",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.tainted-cmd-from-http-request.tainted-cmd-from-http-request",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01689.java:82",
+    "description": "Detected input from a HTTPServletRequest going into a 'ProcessBuilder' or 'exec' command. This could lead to command injection if variables passed into the exec commands are not properly sanitized. Instead, avoid using these OS commands with user-supplied input, or, if you must use these commands, use a whitelist of specific values."
+  },
+  {
+    "id": "semgrep-1508",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.command-injection-process-builder.command-injection-process-builder",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01778.java:63",
+    "description": "A formatted or concatenated string was detected as input to a ProcessBuilder call. This is dangerous if a variable is controlled by user input and could result in a command injection. Ensure your variables are not controlled by users or sufficiently sanitized."
+  },
+  {
+    "id": "semgrep-1522",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.tainted-cmd-from-http-request.tainted-cmd-from-http-request",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01791.java:58",
+    "description": "Detected input from a HTTPServletRequest going into a 'ProcessBuilder' or 'exec' command. This could lead to command injection if variables passed into the exec commands are not properly sanitized. Instead, avoid using these OS commands with user-supplied input, or, if you must use these commands, use a whitelist of specific values."
+  },
+  {
+    "id": "semgrep-1523",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.tainted-cmd-from-http-request.tainted-cmd-from-http-request",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01792.java:72",
+    "description": "Detected input from a HTTPServletRequest going into a 'ProcessBuilder' or 'exec' command. This could lead to command injection if variables passed into the exec commands are not properly sanitized. Instead, avoid using these OS commands with user-supplied input, or, if you must use these commands, use a whitelist of specific values."
+  },
+  {
+    "id": "semgrep-1525",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.tainted-cmd-from-http-request.tainted-cmd-from-http-request",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01794.java:72",
+    "description": "Detected input from a HTTPServletRequest going into a 'ProcessBuilder' or 'exec' command. This could lead to command injection if variables passed into the exec commands are not properly sanitized. Instead, avoid using these OS commands with user-supplied input, or, if you must use these commands, use a whitelist of specific values."
+  },
+  {
+    "id": "semgrep-1526",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.tainted-cmd-from-http-request.tainted-cmd-from-http-request",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01795.java:58",
+    "description": "Detected input from a HTTPServletRequest going into a 'ProcessBuilder' or 'exec' command. This could lead to command injection if variables passed into the exec commands are not properly sanitized. Instead, avoid using these OS commands with user-supplied input, or, if you must use these commands, use a whitelist of specific values."
+  },
+  {
+    "id": "semgrep-1527",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.tainted-cmd-from-http-request.tainted-cmd-from-http-request",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01796.java:58",
+    "description": "Detected input from a HTTPServletRequest going into a 'ProcessBuilder' or 'exec' command. This could lead to command injection if variables passed into the exec commands are not properly sanitized. Instead, avoid using these OS commands with user-supplied input, or, if you must use these commands, use a whitelist of specific values."
+  },
+  {
+    "id": "semgrep-1563",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.tainted-cmd-from-http-request.tainted-cmd-from-http-request",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01850.java:78",
+    "description": "Detected input from a HTTPServletRequest going into a 'ProcessBuilder' or 'exec' command. This could lead to command injection if variables passed into the exec commands are not properly sanitized. Instead, avoid using these OS commands with user-supplied input, or, if you must use these commands, use a whitelist of specific values."
+  },
+  {
+    "id": "semgrep-1564",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.command-injection-process-builder.command-injection-process-builder",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01850.java:80",
+    "description": "A formatted or concatenated string was detected as input to a ProcessBuilder call. This is dangerous if a variable is controlled by user input and could result in a command injection. Ensure your variables are not controlled by users or sufficiently sanitized."
+  },
+  {
+    "id": "semgrep-1565",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.tainted-cmd-from-http-request.tainted-cmd-from-http-request",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01851.java:78",
+    "description": "Detected input from a HTTPServletRequest going into a 'ProcessBuilder' or 'exec' command. This could lead to command injection if variables passed into the exec commands are not properly sanitized. Instead, avoid using these OS commands with user-supplied input, or, if you must use these commands, use a whitelist of specific values."
+  },
+  {
+    "id": "semgrep-1566",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.command-injection-process-builder.command-injection-process-builder",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01851.java:80",
+    "description": "A formatted or concatenated string was detected as input to a ProcessBuilder call. This is dangerous if a variable is controlled by user input and could result in a command injection. Ensure your variables are not controlled by users or sufficiently sanitized."
+  },
+  {
+    "id": "semgrep-1567",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.tainted-cmd-from-http-request.tainted-cmd-from-http-request",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01852.java:80",
+    "description": "Detected input from a HTTPServletRequest going into a 'ProcessBuilder' or 'exec' command. This could lead to command injection if variables passed into the exec commands are not properly sanitized. Instead, avoid using these OS commands with user-supplied input, or, if you must use these commands, use a whitelist of specific values."
+  },
+  {
+    "id": "semgrep-1568",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.command-injection-process-builder.command-injection-process-builder",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01852.java:80",
+    "description": "A formatted or concatenated string was detected as input to a ProcessBuilder call. This is dangerous if a variable is controlled by user input and could result in a command injection. Ensure your variables are not controlled by users or sufficiently sanitized."
+  },
+  {
+    "id": "semgrep-1569",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.tainted-cmd-from-http-request.tainted-cmd-from-http-request",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01852.java:83",
+    "description": "Detected input from a HTTPServletRequest going into a 'ProcessBuilder' or 'exec' command. This could lead to command injection if variables passed into the exec commands are not properly sanitized. Instead, avoid using these OS commands with user-supplied input, or, if you must use these commands, use a whitelist of specific values."
+  },
+  {
+    "id": "semgrep-1579",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.tainted-cmd-from-http-request.tainted-cmd-from-http-request",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01864.java:78",
+    "description": "Detected input from a HTTPServletRequest going into a 'ProcessBuilder' or 'exec' command. This could lead to command injection if variables passed into the exec commands are not properly sanitized. Instead, avoid using these OS commands with user-supplied input, or, if you must use these commands, use a whitelist of specific values."
+  },
+  {
+    "id": "semgrep-1652",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.tainted-cmd-from-http-request.tainted-cmd-from-http-request",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01928.java:63",
+    "description": "Detected input from a HTTPServletRequest going into a 'ProcessBuilder' or 'exec' command. This could lead to command injection if variables passed into the exec commands are not properly sanitized. Instead, avoid using these OS commands with user-supplied input, or, if you must use these commands, use a whitelist of specific values."
+  },
+  {
+    "id": "semgrep-1653",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.command-injection-process-builder.command-injection-process-builder",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01928.java:67",
+    "description": "A formatted or concatenated string was detected as input to a ProcessBuilder call. This is dangerous if a variable is controlled by user input and could result in a command injection. Ensure your variables are not controlled by users or sufficiently sanitized."
+  },
+  {
+    "id": "semgrep-1654",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.tainted-cmd-from-http-request.tainted-cmd-from-http-request",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01929.java:65",
+    "description": "Detected input from a HTTPServletRequest going into a 'ProcessBuilder' or 'exec' command. This could lead to command injection if variables passed into the exec commands are not properly sanitized. Instead, avoid using these OS commands with user-supplied input, or, if you must use these commands, use a whitelist of specific values."
+  },
+  {
+    "id": "semgrep-1655",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.command-injection-process-builder.command-injection-process-builder",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01929.java:65",
+    "description": "A formatted or concatenated string was detected as input to a ProcessBuilder call. This is dangerous if a variable is controlled by user input and could result in a command injection. Ensure your variables are not controlled by users or sufficiently sanitized."
+  },
+  {
+    "id": "semgrep-1656",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.tainted-cmd-from-http-request.tainted-cmd-from-http-request",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01929.java:68",
+    "description": "Detected input from a HTTPServletRequest going into a 'ProcessBuilder' or 'exec' command. This could lead to command injection if variables passed into the exec commands are not properly sanitized. Instead, avoid using these OS commands with user-supplied input, or, if you must use these commands, use a whitelist of specific values."
+  },
+  {
+    "id": "semgrep-1662",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.tainted-cmd-from-http-request.tainted-cmd-from-http-request",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01936.java:62",
+    "description": "Detected input from a HTTPServletRequest going into a 'ProcessBuilder' or 'exec' command. This could lead to command injection if variables passed into the exec commands are not properly sanitized. Instead, avoid using these OS commands with user-supplied input, or, if you must use these commands, use a whitelist of specific values."
+  },
+  {
+    "id": "semgrep-1664",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.tainted-cmd-from-http-request.tainted-cmd-from-http-request",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01938.java:76",
+    "description": "Detected input from a HTTPServletRequest going into a 'ProcessBuilder' or 'exec' command. This could lead to command injection if variables passed into the exec commands are not properly sanitized. Instead, avoid using these OS commands with user-supplied input, or, if you must use these commands, use a whitelist of specific values."
+  },
+  {
+    "id": "semgrep-1666",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.tainted-cmd-from-http-request.tainted-cmd-from-http-request",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01940.java:63",
+    "description": "Detected input from a HTTPServletRequest going into a 'ProcessBuilder' or 'exec' command. This could lead to command injection if variables passed into the exec commands are not properly sanitized. Instead, avoid using these OS commands with user-supplied input, or, if you must use these commands, use a whitelist of specific values."
+  },
+  {
+    "id": "semgrep-1668",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.tainted-cmd-from-http-request.tainted-cmd-from-http-request",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01942.java:63",
+    "description": "Detected input from a HTTPServletRequest going into a 'ProcessBuilder' or 'exec' command. This could lead to command injection if variables passed into the exec commands are not properly sanitized. Instead, avoid using these OS commands with user-supplied input, or, if you must use these commands, use a whitelist of specific values."
+  },
+  {
+    "id": "semgrep-1670",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.tainted-cmd-from-http-request.tainted-cmd-from-http-request",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest01944.java:63",
+    "description": "Detected input from a HTTPServletRequest going into a 'ProcessBuilder' or 'exec' command. This could lead to command injection if variables passed into the exec commands are not properly sanitized. Instead, avoid using these OS commands with user-supplied input, or, if you must use these commands, use a whitelist of specific values."
+  },
+  {
+    "id": "semgrep-1773",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.tainted-cmd-from-http-request.tainted-cmd-from-http-request",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02059.java:67",
+    "description": "Detected input from a HTTPServletRequest going into a 'ProcessBuilder' or 'exec' command. This could lead to command injection if variables passed into the exec commands are not properly sanitized. Instead, avoid using these OS commands with user-supplied input, or, if you must use these commands, use a whitelist of specific values."
+  },
+  {
+    "id": "semgrep-1774",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.command-injection-process-builder.command-injection-process-builder",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02059.java:67",
+    "description": "A formatted or concatenated string was detected as input to a ProcessBuilder call. This is dangerous if a variable is controlled by user input and could result in a command injection. Ensure your variables are not controlled by users or sufficiently sanitized."
+  },
+  {
+    "id": "semgrep-1775",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.tainted-cmd-from-http-request.tainted-cmd-from-http-request",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02059.java:70",
+    "description": "Detected input from a HTTPServletRequest going into a 'ProcessBuilder' or 'exec' command. This could lead to command injection if variables passed into the exec commands are not properly sanitized. Instead, avoid using these OS commands with user-supplied input, or, if you must use these commands, use a whitelist of specific values."
+  },
+  {
+    "id": "semgrep-1851",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.tainted-cmd-from-http-request.tainted-cmd-from-http-request",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02137.java:58",
+    "description": "Detected input from a HTTPServletRequest going into a 'ProcessBuilder' or 'exec' command. This could lead to command injection if variables passed into the exec commands are not properly sanitized. Instead, avoid using these OS commands with user-supplied input, or, if you must use these commands, use a whitelist of specific values."
+  },
+  {
+    "id": "semgrep-1852",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.command-injection-process-builder.command-injection-process-builder",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02137.java:62",
+    "description": "A formatted or concatenated string was detected as input to a ProcessBuilder call. This is dangerous if a variable is controlled by user input and could result in a command injection. Ensure your variables are not controlled by users or sufficiently sanitized."
+  },
+  {
+    "id": "semgrep-1859",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.tainted-cmd-from-http-request.tainted-cmd-from-http-request",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02146.java:57",
+    "description": "Detected input from a HTTPServletRequest going into a 'ProcessBuilder' or 'exec' command. This could lead to command injection if variables passed into the exec commands are not properly sanitized. Instead, avoid using these OS commands with user-supplied input, or, if you must use these commands, use a whitelist of specific values."
+  },
+  {
+    "id": "semgrep-1860",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.tainted-cmd-from-http-request.tainted-cmd-from-http-request",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02147.java:57",
+    "description": "Detected input from a HTTPServletRequest going into a 'ProcessBuilder' or 'exec' command. This could lead to command injection if variables passed into the exec commands are not properly sanitized. Instead, avoid using these OS commands with user-supplied input, or, if you must use these commands, use a whitelist of specific values."
+  },
+  {
+    "id": "semgrep-1863",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.tainted-cmd-from-http-request.tainted-cmd-from-http-request",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02150.java:71",
+    "description": "Detected input from a HTTPServletRequest going into a 'ProcessBuilder' or 'exec' command. This could lead to command injection if variables passed into the exec commands are not properly sanitized. Instead, avoid using these OS commands with user-supplied input, or, if you must use these commands, use a whitelist of specific values."
+  },
+  {
+    "id": "semgrep-1864",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.tainted-cmd-from-http-request.tainted-cmd-from-http-request",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02151.java:71",
+    "description": "Detected input from a HTTPServletRequest going into a 'ProcessBuilder' or 'exec' command. This could lead to command injection if variables passed into the exec commands are not properly sanitized. Instead, avoid using these OS commands with user-supplied input, or, if you must use these commands, use a whitelist of specific values."
+  },
+  {
+    "id": "semgrep-1865",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.tainted-cmd-from-http-request.tainted-cmd-from-http-request",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02152.java:71",
+    "description": "Detected input from a HTTPServletRequest going into a 'ProcessBuilder' or 'exec' command. This could lead to command injection if variables passed into the exec commands are not properly sanitized. Instead, avoid using these OS commands with user-supplied input, or, if you must use these commands, use a whitelist of specific values."
+  },
+  {
+    "id": "semgrep-1867",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.tainted-cmd-from-http-request.tainted-cmd-from-http-request",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02154.java:58",
+    "description": "Detected input from a HTTPServletRequest going into a 'ProcessBuilder' or 'exec' command. This could lead to command injection if variables passed into the exec commands are not properly sanitized. Instead, avoid using these OS commands with user-supplied input, or, if you must use these commands, use a whitelist of specific values."
+  },
+  {
+    "id": "semgrep-1958",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.tainted-cmd-from-http-request.tainted-cmd-from-http-request",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02243.java:62",
+    "description": "Detected input from a HTTPServletRequest going into a 'ProcessBuilder' or 'exec' command. This could lead to command injection if variables passed into the exec commands are not properly sanitized. Instead, avoid using these OS commands with user-supplied input, or, if you must use these commands, use a whitelist of specific values."
+  },
+  {
+    "id": "semgrep-1959",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.command-injection-process-builder.command-injection-process-builder",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02243.java:64",
+    "description": "A formatted or concatenated string was detected as input to a ProcessBuilder call. This is dangerous if a variable is controlled by user input and could result in a command injection. Ensure your variables are not controlled by users or sufficiently sanitized."
+  },
+  {
+    "id": "semgrep-1960",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.tainted-cmd-from-http-request.tainted-cmd-from-http-request",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02244.java:62",
+    "description": "Detected input from a HTTPServletRequest going into a 'ProcessBuilder' or 'exec' command. This could lead to command injection if variables passed into the exec commands are not properly sanitized. Instead, avoid using these OS commands with user-supplied input, or, if you must use these commands, use a whitelist of specific values."
+  },
+  {
+    "id": "semgrep-1961",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.command-injection-process-builder.command-injection-process-builder",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02244.java:64",
+    "description": "A formatted or concatenated string was detected as input to a ProcessBuilder call. This is dangerous if a variable is controlled by user input and could result in a command injection. Ensure your variables are not controlled by users or sufficiently sanitized."
+  },
+  {
+    "id": "semgrep-1964",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.tainted-cmd-from-http-request.tainted-cmd-from-http-request",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02249.java:61",
+    "description": "Detected input from a HTTPServletRequest going into a 'ProcessBuilder' or 'exec' command. This could lead to command injection if variables passed into the exec commands are not properly sanitized. Instead, avoid using these OS commands with user-supplied input, or, if you must use these commands, use a whitelist of specific values."
+  },
+  {
+    "id": "semgrep-1965",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.tainted-cmd-from-http-request.tainted-cmd-from-http-request",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02250.java:61",
+    "description": "Detected input from a HTTPServletRequest going into a 'ProcessBuilder' or 'exec' command. This could lead to command injection if variables passed into the exec commands are not properly sanitized. Instead, avoid using these OS commands with user-supplied input, or, if you must use these commands, use a whitelist of specific values."
+  },
+  {
+    "id": "semgrep-1966",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.tainted-cmd-from-http-request.tainted-cmd-from-http-request",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02251.java:73",
+    "description": "Detected input from a HTTPServletRequest going into a 'ProcessBuilder' or 'exec' command. This could lead to command injection if variables passed into the exec commands are not properly sanitized. Instead, avoid using these OS commands with user-supplied input, or, if you must use these commands, use a whitelist of specific values."
+  },
+  {
+    "id": "semgrep-2056",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.tainted-cmd-from-http-request.tainted-cmd-from-http-request",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02333.java:72",
+    "description": "Detected input from a HTTPServletRequest going into a 'ProcessBuilder' or 'exec' command. This could lead to command injection if variables passed into the exec commands are not properly sanitized. Instead, avoid using these OS commands with user-supplied input, or, if you must use these commands, use a whitelist of specific values."
+  },
+  {
+    "id": "semgrep-2057",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.command-injection-process-builder.command-injection-process-builder",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02333.java:76",
+    "description": "A formatted or concatenated string was detected as input to a ProcessBuilder call. This is dangerous if a variable is controlled by user input and could result in a command injection. Ensure your variables are not controlled by users or sufficiently sanitized."
+  },
+  {
+    "id": "semgrep-2058",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.tainted-cmd-from-http-request.tainted-cmd-from-http-request",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02334.java:72",
+    "description": "Detected input from a HTTPServletRequest going into a 'ProcessBuilder' or 'exec' command. This could lead to command injection if variables passed into the exec commands are not properly sanitized. Instead, avoid using these OS commands with user-supplied input, or, if you must use these commands, use a whitelist of specific values."
+  },
+  {
+    "id": "semgrep-2059",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.command-injection-process-builder.command-injection-process-builder",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02334.java:76",
+    "description": "A formatted or concatenated string was detected as input to a ProcessBuilder call. This is dangerous if a variable is controlled by user input and could result in a command injection. Ensure your variables are not controlled by users or sufficiently sanitized."
+  },
+  {
+    "id": "semgrep-2067",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.tainted-cmd-from-http-request.tainted-cmd-from-http-request",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02342.java:72",
+    "description": "Detected input from a HTTPServletRequest going into a 'ProcessBuilder' or 'exec' command. This could lead to command injection if variables passed into the exec commands are not properly sanitized. Instead, avoid using these OS commands with user-supplied input, or, if you must use these commands, use a whitelist of specific values."
+  },
+  {
+    "id": "semgrep-2068",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.tainted-cmd-from-http-request.tainted-cmd-from-http-request",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02343.java:72",
+    "description": "Detected input from a HTTPServletRequest going into a 'ProcessBuilder' or 'exec' command. This could lead to command injection if variables passed into the exec commands are not properly sanitized. Instead, avoid using these OS commands with user-supplied input, or, if you must use these commands, use a whitelist of specific values."
+  },
+  {
+    "id": "semgrep-2069",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.tainted-cmd-from-http-request.tainted-cmd-from-http-request",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02344.java:68",
+    "description": "Detected input from a HTTPServletRequest going into a 'ProcessBuilder' or 'exec' command. This could lead to command injection if variables passed into the exec commands are not properly sanitized. Instead, avoid using these OS commands with user-supplied input, or, if you must use these commands, use a whitelist of specific values."
+  },
+  {
+    "id": "semgrep-2123",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.command-injection-process-builder.command-injection-process-builder",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02411.java:64",
+    "description": "A formatted or concatenated string was detected as input to a ProcessBuilder call. This is dangerous if a variable is controlled by user input and could result in a command injection. Ensure your variables are not controlled by users or sufficiently sanitized."
+  },
+  {
+    "id": "semgrep-2124",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.command-injection-process-builder.command-injection-process-builder",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02412.java:64",
+    "description": "A formatted or concatenated string was detected as input to a ProcessBuilder call. This is dangerous if a variable is controlled by user input and could result in a command injection. Ensure your variables are not controlled by users or sufficiently sanitized."
+  },
+  {
+    "id": "semgrep-2126",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.tainted-cmd-from-http-request.tainted-cmd-from-http-request",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02414.java:60",
+    "description": "Detected input from a HTTPServletRequest going into a 'ProcessBuilder' or 'exec' command. This could lead to command injection if variables passed into the exec commands are not properly sanitized. Instead, avoid using these OS commands with user-supplied input, or, if you must use these commands, use a whitelist of specific values."
+  },
+  {
+    "id": "semgrep-2127",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.command-injection-process-builder.command-injection-process-builder",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02414.java:62",
+    "description": "A formatted or concatenated string was detected as input to a ProcessBuilder call. This is dangerous if a variable is controlled by user input and could result in a command injection. Ensure your variables are not controlled by users or sufficiently sanitized."
+  },
+  {
+    "id": "semgrep-2142",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.tainted-cmd-from-http-request.tainted-cmd-from-http-request",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02429.java:71",
+    "description": "Detected input from a HTTPServletRequest going into a 'ProcessBuilder' or 'exec' command. This could lead to command injection if variables passed into the exec commands are not properly sanitized. Instead, avoid using these OS commands with user-supplied input, or, if you must use these commands, use a whitelist of specific values."
+  },
+  {
+    "id": "semgrep-2143",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.tainted-cmd-from-http-request.tainted-cmd-from-http-request",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02430.java:73",
+    "description": "Detected input from a HTTPServletRequest going into a 'ProcessBuilder' or 'exec' command. This could lead to command injection if variables passed into the exec commands are not properly sanitized. Instead, avoid using these OS commands with user-supplied input, or, if you must use these commands, use a whitelist of specific values."
+  },
+  {
+    "id": "semgrep-2144",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.tainted-cmd-from-http-request.tainted-cmd-from-http-request",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02431.java:59",
+    "description": "Detected input from a HTTPServletRequest going into a 'ProcessBuilder' or 'exec' command. This could lead to command injection if variables passed into the exec commands are not properly sanitized. Instead, avoid using these OS commands with user-supplied input, or, if you must use these commands, use a whitelist of specific values."
+  },
+  {
+    "id": "semgrep-2146",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.tainted-cmd-from-http-request.tainted-cmd-from-http-request",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02433.java:73",
+    "description": "Detected input from a HTTPServletRequest going into a 'ProcessBuilder' or 'exec' command. This could lead to command injection if variables passed into the exec commands are not properly sanitized. Instead, avoid using these OS commands with user-supplied input, or, if you must use these commands, use a whitelist of specific values."
+  },
+  {
+    "id": "semgrep-2184",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.command-injection-process-builder.command-injection-process-builder",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02496.java:64",
+    "description": "A formatted or concatenated string was detected as input to a ProcessBuilder call. This is dangerous if a variable is controlled by user input and could result in a command injection. Ensure your variables are not controlled by users or sufficiently sanitized."
+  },
+  {
+    "id": "semgrep-2198",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.tainted-cmd-from-http-request.tainted-cmd-from-http-request",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02511.java:59",
+    "description": "Detected input from a HTTPServletRequest going into a 'ProcessBuilder' or 'exec' command. This could lead to command injection if variables passed into the exec commands are not properly sanitized. Instead, avoid using these OS commands with user-supplied input, or, if you must use these commands, use a whitelist of specific values."
+  },
+  {
+    "id": "semgrep-2199",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.tainted-cmd-from-http-request.tainted-cmd-from-http-request",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02512.java:59",
+    "description": "Detected input from a HTTPServletRequest going into a 'ProcessBuilder' or 'exec' command. This could lead to command injection if variables passed into the exec commands are not properly sanitized. Instead, avoid using these OS commands with user-supplied input, or, if you must use these commands, use a whitelist of specific values."
+  },
+  {
+    "id": "semgrep-2201",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.tainted-cmd-from-http-request.tainted-cmd-from-http-request",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02514.java:58",
+    "description": "Detected input from a HTTPServletRequest going into a 'ProcessBuilder' or 'exec' command. This could lead to command injection if variables passed into the exec commands are not properly sanitized. Instead, avoid using these OS commands with user-supplied input, or, if you must use these commands, use a whitelist of specific values."
+  },
+  {
+    "id": "semgrep-2202",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.tainted-cmd-from-http-request.tainted-cmd-from-http-request",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02515.java:58",
+    "description": "Detected input from a HTTPServletRequest going into a 'ProcessBuilder' or 'exec' command. This could lead to command injection if variables passed into the exec commands are not properly sanitized. Instead, avoid using these OS commands with user-supplied input, or, if you must use these commands, use a whitelist of specific values."
+  },
+  {
+    "id": "semgrep-2203",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.tainted-cmd-from-http-request.tainted-cmd-from-http-request",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02516.java:56",
+    "description": "Detected input from a HTTPServletRequest going into a 'ProcessBuilder' or 'exec' command. This could lead to command injection if variables passed into the exec commands are not properly sanitized. Instead, avoid using these OS commands with user-supplied input, or, if you must use these commands, use a whitelist of specific values."
+  },
+  {
+    "id": "semgrep-2204",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.tainted-cmd-from-http-request.tainted-cmd-from-http-request",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02517.java:56",
+    "description": "Detected input from a HTTPServletRequest going into a 'ProcessBuilder' or 'exec' command. This could lead to command injection if variables passed into the exec commands are not properly sanitized. Instead, avoid using these OS commands with user-supplied input, or, if you must use these commands, use a whitelist of specific values."
+  },
+  {
+    "id": "semgrep-2304",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.tainted-cmd-from-http-request.tainted-cmd-from-http-request",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02610.java:95",
+    "description": "Detected input from a HTTPServletRequest going into a 'ProcessBuilder' or 'exec' command. This could lead to command injection if variables passed into the exec commands are not properly sanitized. Instead, avoid using these OS commands with user-supplied input, or, if you must use these commands, use a whitelist of specific values."
+  },
+  {
+    "id": "semgrep-2305",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.tainted-cmd-from-http-request.tainted-cmd-from-http-request",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02611.java:95",
+    "description": "Detected input from a HTTPServletRequest going into a 'ProcessBuilder' or 'exec' command. This could lead to command injection if variables passed into the exec commands are not properly sanitized. Instead, avoid using these OS commands with user-supplied input, or, if you must use these commands, use a whitelist of specific values."
+  },
+  {
+    "id": "semgrep-2382",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.tainted-cmd-from-http-request.tainted-cmd-from-http-request",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02697.java:59",
+    "description": "Detected input from a HTTPServletRequest going into a 'ProcessBuilder' or 'exec' command. This could lead to command injection if variables passed into the exec commands are not properly sanitized. Instead, avoid using these OS commands with user-supplied input, or, if you must use these commands, use a whitelist of specific values."
+  },
+  {
+    "id": "semgrep-2383",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.command-injection-process-builder.command-injection-process-builder",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02697.java:63",
+    "description": "A formatted or concatenated string was detected as input to a ProcessBuilder call. This is dangerous if a variable is controlled by user input and could result in a command injection. Ensure your variables are not controlled by users or sufficiently sanitized."
+  },
+  {
+    "id": "semgrep-2384",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.tainted-cmd-from-http-request.tainted-cmd-from-http-request",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02698.java:59",
+    "description": "Detected input from a HTTPServletRequest going into a 'ProcessBuilder' or 'exec' command. This could lead to command injection if variables passed into the exec commands are not properly sanitized. Instead, avoid using these OS commands with user-supplied input, or, if you must use these commands, use a whitelist of specific values."
+  },
+  {
+    "id": "semgrep-2385",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.command-injection-process-builder.command-injection-process-builder",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02698.java:63",
+    "description": "A formatted or concatenated string was detected as input to a ProcessBuilder call. This is dangerous if a variable is controlled by user input and could result in a command injection. Ensure your variables are not controlled by users or sufficiently sanitized."
+  },
+  {
+    "id": "semgrep-2386",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.tainted-cmd-from-http-request.tainted-cmd-from-http-request",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02699.java:61",
+    "description": "Detected input from a HTTPServletRequest going into a 'ProcessBuilder' or 'exec' command. This could lead to command injection if variables passed into the exec commands are not properly sanitized. Instead, avoid using these OS commands with user-supplied input, or, if you must use these commands, use a whitelist of specific values."
+  },
+  {
+    "id": "semgrep-2387",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.command-injection-process-builder.command-injection-process-builder",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02699.java:61",
+    "description": "A formatted or concatenated string was detected as input to a ProcessBuilder call. This is dangerous if a variable is controlled by user input and could result in a command injection. Ensure your variables are not controlled by users or sufficiently sanitized."
+  },
+  {
+    "id": "semgrep-2388",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.tainted-cmd-from-http-request.tainted-cmd-from-http-request",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02699.java:64",
+    "description": "Detected input from a HTTPServletRequest going into a 'ProcessBuilder' or 'exec' command. This could lead to command injection if variables passed into the exec commands are not properly sanitized. Instead, avoid using these OS commands with user-supplied input, or, if you must use these commands, use a whitelist of specific values."
+  },
+  {
+    "id": "semgrep-2401",
+    "tool": "semgrep",
+    "vulnerabilityType": "java.lang.security.audit.tainted-cmd-from-http-request.tainted-cmd-from-http-request",
+    "severity": "LOW",
+    "location": "/tmp/owasp-benchmark/src/main/java/org/owasp/benchmark/testcode/BenchmarkTest02714.java:55",
+    "description": "Detected input from a HTTPServletRequest going into a 'ProcessBuilder' or 'exec' command. This could lead to command injection if variables passed into the exec commands are not properly sanitized. Instead, avoid using these OS commands with user-supplied input, or, if you must use these commands, use a whitelist of specific values."
+  }
+]

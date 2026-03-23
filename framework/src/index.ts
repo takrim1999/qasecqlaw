@@ -447,9 +447,41 @@ Caused by: ECONNREFUSED 127.0.0.1:5432
       artifacts,
     })
     const evidence = await agent.execute()
+
+    // ── QASECCLAW CORE VALUE: The False Positive Filter ──
+    const linkedIds = new Set(
+      evidence.chains.flatMap((c) => c.linkedEvidenceIds || [])
+    )
+    
+    let allFindings = prev.securityValidation?.findings ?? []
+    const dynamicallyVerified = allFindings.filter((finding) => linkedIds.has(finding.id))
+    const uncorrelated = allFindings.filter((finding) => !linkedIds.has(finding.id))
+    
+    let finalFindings = [...dynamicallyVerified]
+    
+    // For findings without dynamic execution context (e.g., pure static benchmarks),
+    // we use the LLM SastFilterAgent to do a deep code review to recover True Positives.
+    const sourcePath = prev.request.target.value || "/tmp/owasp-benchmark"
+    if (uncorrelated.length > 0) {
+      this.logPhaseDetail("Evidence Correlation", `Running deep LLM SAST filter on ${uncorrelated.length} uncorrelated findings...`)
+      
+      const SastFilterAgent = (await import("./agents/sast-filter-agent.js")).SastFilterAgent
+      const filterAgent = new SastFilterAgent(sourcePath, uncorrelated)
+      const llmVerified = await filterAgent.execute()
+      
+      finalFindings.push(...llmVerified)
+    }
+
+    const dropped = allFindings.length - finalFindings.length
+    this.logPhaseDetail("Evidence Correlation", `Filtered out ${dropped} False Positives. Kept ${finalFindings.length} verified findings.`)
+
     return {
       ...prev,
       evidenceCorrelation: evidence,
+      securityValidation: prev.securityValidation ? {
+        ...prev.securityValidation,
+        findings: finalFindings
+      } : undefined,
       updatedAt: new Date(),
     }
   }
@@ -469,6 +501,13 @@ Caused by: ECONNREFUSED 127.0.0.1:5432
     const reportPath = resolve(__dirname, "..", "qasecclaw-report.md")
     await writeFile(reportPath, markdown, "utf-8")
     console.log(chalk.green(`Report written to ${reportPath}`))
+    
+    // Also export raw security findings to JSON for benchmark scoring
+    const rawFindingsPath = resolve(__dirname, "..", "qasecclaw-raw-findings.json")
+    const rawFindings = prev.securityValidation?.findings || []
+    await writeFile(rawFindingsPath, JSON.stringify(rawFindings, null, 2), "utf-8")
+    console.log(chalk.green(`Raw security findings written to ${rawFindingsPath}`))
+
     const report: ReportOutput = {
       reportPath,
       summary: markdown.slice(0, 200) + (markdown.length > 200 ? "..." : ""),

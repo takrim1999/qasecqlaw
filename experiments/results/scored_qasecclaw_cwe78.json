@@ -1,0 +1,29 @@
+{
+  "tool": "QASecClaw",
+  "overall": {
+    "TP": 106,
+    "FP": 23,
+    "TN": 102,
+    "FN": 20,
+    "Precision": 0.8217,
+    "Recall": 0.8413,
+    "F1": 0.8314,
+    "FPR": 0.184,
+    "Youdens_J": 0.6573,
+    "Total_Cases": 251
+  },
+  "per_cwe": {
+    "78": {
+      "TP": 106,
+      "FP": 23,
+      "TN": 102,
+      "FN": 20,
+      "Precision": 0.8217,
+      "Recall": 0.8413,
+      "F1": 0.8314,
+      "FPR": 0.184,
+      "Youdens_J": 0.6573,
+      "Total_Cases": 251
+    }
+  }
+}
