@@ -44,14 +44,17 @@ export class SastFilterAgent {
              // Ignore read errors
           }
         }
-        return `ID: ${f.id}\nLocation: ${f.location}\nCode Snippet:\n\`\`\`java\n${code}\n\`\`\`\n`
+        return `ID: ${f.id}\nReported Vulnerability: ${f.vulnerabilityType}\nCWE: ${f.cweId || "Unknown"}\nLocation: ${f.location}\nCode Snippet:\n\`\`\`java\n${code}\n\`\`\`\n`
       }))
 
       const systemPrompt = `You are an expert Security Code Reviewer. 
-Your job is to read the provided Java source code files and determine if the reported SAST finding (Command Injection) is a True Positive (exploitable) or False Positive (safe/unexploitable).
+Your job is to read the provided Java source code files and determine if the reported SAST finding is a True Positive (exploitable) or False Positive (safe/unexploitable).
 
-Analyze the data flow. If the user input reaches 'java.lang.Runtime.getRuntime().exec()' OR 'new ProcessBuilder()' WITHOUT sanitization, it is a True Positive.
-If the input is properly validated, safely embedded, completely overridden, or never reaches an exec sink, it is a False Positive.
+Analyze the data flow based on the "Reported Vulnerability" for each finding:
+1. Identify the input source.
+2. Track it to the sensitive execution sink (e.g., SQL execution, command execution, HTML response output, file I/O, or insecure cryptographic algorithms).
+3. If the input reaches the sink WITHOUT proper sanitization, validation, parameterization, or secure encoding, it is a True Positive.
+4. If the input is properly validated, safely encoded, parameterized, safely embedded, overridden, or never reaches a dangerous sink, it is a False Positive.
 
 Respond ONLY with a JSON array containing the IDs of the TRUE POSITIVES. Do not include any other text.
 Format: ["id-1", "id-2"]`

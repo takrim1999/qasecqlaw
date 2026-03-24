@@ -1,0 +1,149 @@
+{
+  "tool": "QASecClaw",
+  "overall": {
+    "TP": 1233,
+    "FP": 64,
+    "TN": 1261,
+    "FN": 182,
+    "Precision": 0.9507,
+    "Recall": 0.8714,
+    "F1": 0.9093,
+    "FPR": 0.0483,
+    "Youdens_J": 0.8231,
+    "Total_Cases": 2740
+  },
+  "per_cwe": {
+    "22": {
+      "TP": 119,
+      "FP": 14,
+      "TN": 121,
+      "FN": 14,
+      "Precision": 0.8947,
+      "Recall": 0.8947,
+      "F1": 0.8947,
+      "FPR": 0.1037,
+      "Youdens_J": 0.791,
+      "Total_Cases": 268
+    },
+    "78": {
+      "TP": 115,
+      "FP": 25,
+      "TN": 100,
+      "FN": 11,
+      "Precision": 0.8214,
+      "Recall": 0.9127,
+      "F1": 0.8647,
+      "FPR": 0.2,
+      "Youdens_J": 0.7127,
+      "Total_Cases": 251
+    },
+    "79": {
+      "TP": 202,
+      "FP": 3,
+      "TN": 206,
+      "FN": 44,
+      "Precision": 0.9854,
+      "Recall": 0.8211,
+      "F1": 0.8958,
+      "FPR": 0.0144,
+      "Youdens_J": 0.8068,
+      "Total_Cases": 455
+    },
+    "89": {
+      "TP": 253,
+      "FP": 13,
+      "TN": 219,
+      "FN": 19,
+      "Precision": 0.9511,
+      "Recall": 0.9301,
+      "F1": 0.9405,
+      "FPR": 0.056,
+      "Youdens_J": 0.8741,
+      "Total_Cases": 504
+    },
+    "90": {
+      "TP": 26,
+      "FP": 8,
+      "TN": 24,
+      "FN": 1,
+      "Precision": 0.7647,
+      "Recall": 0.963,
+      "F1": 0.8525,
+      "FPR": 0.25,
+      "Youdens_J": 0.713,
+      "Total_Cases": 59
+    },
+    "327": {
+      "TP": 129,
+      "FP": 0,
+      "TN": 116,
+      "FN": 1,
+      "Precision": 1.0,
+      "Recall": 0.9923,
+      "F1": 0.9961,
+      "FPR": 0.0,
+      "Youdens_J": 0.9923,
+      "Total_Cases": 246
+    },
+    "328": {
+      "TP": 86,
+      "FP": 0,
+      "TN": 107,
+      "FN": 43,
+      "Precision": 1.0,
+      "Recall": 0.6667,
+      "F1": 0.8,
+      "FPR": 0.0,
+      "Youdens_J": 0.6667,
+      "Total_Cases": 236
+    },
+    "330": {
+      "TP": 218,
+      "FP": 0,
+      "TN": 275,
+      "FN": 0,
+      "Precision": 1.0,
+      "Recall": 1.0,
+      "F1": 1.0,
+      "FPR": 0.0,
+      "Youdens_J": 1.0,
+      "Total_Cases": 493
+    },
+    "501": {
+      "TP": 35,
+      "FP": 0,
+      "TN": 43,
+      "FN": 48,
+      "Precision": 1.0,
+      "Recall": 0.4217,
+      "F1": 0.5932,
+      "FPR": 0.0,
+      "Youdens_J": 0.4217,
+      "Total_Cases": 126
+    },
+    "614": {
+      "TP": 36,
+      "FP": 0,
+      "TN": 31,
+      "FN": 0,
+      "Precision": 1.0,
+      "Recall": 1.0,
+      "F1": 1.0,
+      "FPR": 0.0,
+      "Youdens_J": 1.0,
+      "Total_Cases": 67
+    },
+    "643": {
+      "TP": 14,
+      "FP": 1,
+      "TN": 19,
+      "FN": 1,
+      "Precision": 0.9333,
+      "Recall": 0.9333,
+      "F1": 0.9333,
+      "FPR": 0.05,
+      "Youdens_J": 0.8833,
+      "Total_Cases": 35
+    }
+  }
+}

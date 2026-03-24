@@ -128,6 +128,7 @@ echo ""
 # ── Step 2: Run QASecClaw ────────────────────────────────────────────
 QASECCLAW_FINDINGS="${RESULTS_DIR}/findings_qasecclaw.csv"
 QASECCLAW_REPORT="${RESULTS_DIR}/qasecclaw_owasp_report.md"
+QASECCLAW_RAW_JSON="${RESULTS_DIR}/qasecclaw_raw_findings.json"
 
 if [[ "$SEMGREP_ONLY" == false ]]; then
   echo "${bold}${blue}[Step 2/5] Running QASecClaw against OWASP Benchmark...${reset}"
@@ -137,28 +138,32 @@ if [[ "$SEMGREP_ONLY" == false ]]; then
       --source "${BENCHMARK_DIR}/${TESTCODE_SUBDIR}" \
       --api "${BENCHMARK_DIR}/openapi.json" 2>&1; then
     
-    # Move report if produced
+    # Move report and json findings if produced
     if [[ -f "framework/qasecclaw-report.md" ]]; then
       mv -f "framework/qasecclaw-report.md" "$QASECCLAW_REPORT"
       echo "${green}  QASecClaw report saved: ${QASECCLAW_REPORT}${reset}"
+    fi
+    if [[ -f "framework/qasecclaw-raw-findings.json" ]]; then
+      mv -f "framework/qasecclaw-raw-findings.json" "$QASECCLAW_RAW_JSON"
+      echo "${green}  QASecClaw raw findings saved: ${QASECCLAW_RAW_JSON}${reset}"
     fi
   else
     echo "${yellow}  QASecClaw run had issues (continuing with available data).${reset}"
   fi
 
-  # Parse QASecClaw report into normalized findings CSV
-  if [[ -f "$QASECCLAW_REPORT" ]]; then
-    echo "${yellow}  Extracting findings from QASecClaw report...${reset}"
+  # Parse QASecClaw JSON report into normalized findings CSV
+  if [[ -f "$QASECCLAW_RAW_JSON" ]]; then
+    echo "${yellow}  Extracting findings from QASecClaw JSON output...${reset}"
     CWE_ARG=""
     [[ -n "$CWE_FILTER" ]] && CWE_ARG="--cwe ${CWE_FILTER}"
     python3 "$BASELINE_SCRIPT" \
       --benchmark-dir "$BENCHMARK_DIR" \
       --tool qasecclaw \
-      --report "$QASECCLAW_REPORT" \
+      --report "$QASECCLAW_RAW_JSON" \
       --output "$QASECCLAW_FINDINGS" \
       $CWE_ARG
   else
-    echo "${yellow}  No QASecClaw report found. Creating empty findings.${reset}"
+    echo "${yellow}  No QASecClaw raw JSON found. Creating empty findings.${reset}"
     echo "test_name,tool,cwe,severity,raw_id" > "$QASECCLAW_FINDINGS"
   fi
 else
